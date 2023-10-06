@@ -54,6 +54,43 @@ app.get('/lore', (request, response) => {
     })
 })
 
+app.get('/lore/mondo', (request, response) => {
+    response.render('template', {
+        titolo: "Reame terreno",
+        distanza: trovaDistanza(request),
+        nomefile: "mondo"
+    })
+})
+
+app.get('/lore/personaggi', (request, response) => {
+    response.render('template', {
+        titolo: "I nostri avventurieri",
+        distanza: trovaDistanza(request),
+        nomefile: "personaggi"
+    })
+})
+
+app.get('/lore/mondo/:nomeRegione', (request, response) => {
+    const {nomeSezioneLore} = request.params;
+    let titolo;
+    let trovato = true;
+
+    if (nomeSezioneLore=="mondo") {
+        titolo = "Reame terreno";
+    } else if (nomeSezioneLore=="personaggi") {
+        titolo = "I nostri avventurieri";
+    } else {
+        trovato = false
+    }
+
+    response.render('template', {
+        titolo: trovato?titolo:"Storia non scritta",
+        distanza: trovaDistanza(request),
+        nomefile: "lore"
+    })
+})
+
+
 // Manual view charging
 app.get('/manuali/:nomeManuale', (request, response) => {
     const {nomeManuale} = request.params;

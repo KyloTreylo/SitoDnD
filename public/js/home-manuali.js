@@ -10,7 +10,7 @@ async function loadMain() {
 
     title.innerHTML = `<h1>Manuali D&D 5e</h1>`;
 
-	fetch('http://localhost:5000/html-mains/home-manuali.html')
+	fetch('http://localhost:5000/html/home-manuali.html')
     .then(response => response.text())
     .then((html) => {
         main.innerHTML = html

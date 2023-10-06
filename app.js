@@ -21,7 +21,7 @@ app.use('/pdf', express.static(__dirname + 'public/pdf'))
 app.use('/fonts', express.static(__dirname + 'public/fonts'))
 app.use('/js', express.static(__dirname + 'public/js'))
 app.use('/json', express.static(__dirname + 'public/json'))
-app.use('/home-mains', express.static(__dirname + 'public/home-mains'))
+app.use('/home', express.static(__dirname + 'public/home-mains'))
 
 // Set View's
 app.set('views', './views');

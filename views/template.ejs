@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="icon" type="image/x-icon" href="<%=distanza%>img/favicon.png">
+    <link rel="stylesheet" href="<%=distanza%>css/template.css" type="text/css">
+    <link rel="stylesheet" href="<%=distanza%>css/<%=nomefile%>.css" type="text/css">
+    <script src="<%=distanza%>js/template.js"></script>
+    <script src="<%=distanza%>js/<%=nomefile%>.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title><%=titolo%></title>
+    
+</head>
+<body>
+    <header>
+        <div id="div-titolo" class="titolo">
+            <!-- Contenuto del titolo -->
+        </div>
+    </header>
+    <nav id="navbar">
+        <ul>
+			<li>
+				<a href="/">Home</a>
+			</li>
+            <li class="dropdown">
+                <a href="/manuali">Manuali</a>
+                <div class="dropdown-content">
+                    <a href="/manuali/manuale-giocatore">Giocatore</a>
+                    <a href="/manuali/manuale-mostri">Mostri</a>
+                    <a href="/manuali/manuale-dungeon-master">Master</a>
+                    <a href="/manuali/manuale-xanathar">Xanathar</a>
+                    <a href="/manuali/manuale-tasha">Tasha</a>
+                    <a href="/manuali/manuale-eberron">Eberron</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="/lore">Lore</a>
+                <div class="dropdown-content">
+                    <a href="#">Mondo</a>
+                    <a href="#">Personaggi</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#">Mappe</a>
+                <div class="dropdown-content">
+                    <a href="#">---</a>
+                    <a href="#">---</a>
+                    <a href="#">---</a>
+                    <a href="#">---</a>
+                    <a href="#">---</a>
+                    <a href="#">---</a>
+                    <a href="#">---</a>
+                    <a href="#">---</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="#">Schede</a>
+                <div class="dropdown-content">
+                    <a href="#">NPC</a>
+                    <a href="#">Cino</a>
+                    <a href="#">Daniele</a>
+                    <a href="#">Davide</a>
+                    <a href="#">Diego</a>
+                    <a href="#">Kevin</a>
+                    <a href="#">Manuel</a>
+                    <a href="#">Nicola</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="">Soundtrack</a>
+                <div class="dropdown-content">
+                    <a href="#">Chill</a>
+                    <a href="#">Combat</a>
+                    <a href="#">Momento epico</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <main id="home" class="fade-in">
+        <img id="img-notfound" src="<%=distanza%>img/error404.png" alt="Error404" hidden>
+    </main>
+
+    <footer hidden="true">
+        <div class="footer-content">
+            <p>Contatti: morettanicola@outlook.it</p>
+            <p>&copy; Nicola Moretta</p>
+        </div>
+    </footer>
+</body>
+</html>

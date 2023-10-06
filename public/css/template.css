@@ -1,0 +1,138 @@
+/* Importazione dei font */
+@font-face {
+    font-family: "Dragon Hunter";
+    src: url(../fonts/font-header-navbar.otf);
+}
+
+@font-face {
+    font-family: "Bebas Neue";
+    src: url(../fonts/BebasNeue-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Gilgan";
+    src: url(../fonts/Gilgan.otf);
+}
+
+
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Settaggio font di base e sfondo body */
+body {
+    font-family: "Bebas Neue";
+    background-image: url('../img/sfondo.jpg'); /* Aggiungi un'immagine fantasy di sfondo */
+    background-size: cover;
+    background-attachment: fixed; /* Rendi lo sfondo fisso mentre scorri la pagina */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+header {
+    /* Settare l'elemento al centro*/
+    display: flex;
+    justify-content: center;
+    /* Impostare la sua grafica */
+    padding: 2%;
+    background-color: rgba(0, 0, 0, 0.7); /* Sfondo con sfumatura nera */
+    color: #fff;
+}
+
+/* Impostazione del font e grandezze dei titoli */
+h1 {
+    font-family: 'Dragon Hunter'; 
+    font-size: 300%;
+}
+h2 {
+    font-family: 'Bebas Neue'; 
+    font-size: 600%;
+}
+p {
+    font-family: "Gilgan";
+}
+
+#navbar {
+    font-family: 'Dragon Hunter';
+    font-size: 22px;
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Facciamo restare la navbar sticky */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Imposto l'opacità a 1 del background quando tramite js
+capisco che la navbar è diventata sticky */
+.nav-container-sticky {
+    background-color: rgba(0, 0, 0, 1) !important;
+}
+
+/* Impostiamo lo stile per i dropdown */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+nav ul li {
+    position: relative;
+}
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    padding: 15px 30px;
+    display: block;
+}
+
+.dropdown {
+    position: relative;
+}
+.dropdown-content {
+    font-size: 14px;
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.9);
+    min-width: 160px;
+    z-index: 1;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/* Impostiamo le caratteristiche del main,
+anch'esso uguale per tutte le pagine*/
+main {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    padding: 2%;
+    backdrop-filter: blur(5px); /* Effetto sfuocatura */
+    text-align: center;
+}
+
+footer {
+    font-size: 100%;
+    text-align: center;
+    padding: 2%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+}
+
+/* Animazione di Fade-In per al caricamento della pagina */
+
+.fade-in {
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

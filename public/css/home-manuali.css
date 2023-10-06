@@ -1,0 +1,55 @@
+.gruppo{
+	display: flex;
+	justify-content: center;
+}
+
+.card{
+	width: 100%;
+	background-color: transparent;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	overflow: hidden;
+	margin:30px;
+
+	transition:transform 0.3s ease-in-out;
+
+}
+
+.img_card{
+	font-family: 'Tiro Devanagari Sanskrit', serif;
+	
+	width: 286px;
+	height: 450px;
+	border-width: 5px; /* Larghezza del bordo */
+	border-style: solid; /* Stile del bordo */
+	border-color: rgba(0, 0, 0, 0.408); /* Colore del bordo */
+	transition:all 0.3s ease-in-out;
+}
+
+.title_card{
+	visibility: hidden;
+	margin-top: 190px;
+	position: absolute;
+	font-size: 30px;
+	color: white;
+	z-index:10;
+}
+
+.card:hover {
+	transform:scale(1.1);
+}
+
+.card:hover .img_card{
+	filter: brightness(0.7);
+}
+
+.card:hover .title_card{
+	visibility: visible;
+}
+
+.card:hover .subtitle_card{
+	visibility: visible;
+}

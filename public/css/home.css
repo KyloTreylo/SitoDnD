@@ -1,0 +1,162 @@
+/* stile generale della pagina */
+
+@font-face {
+    font-family: "Bebas Neue";
+    src: url(../fonts/BebasNeue-Regular.ttf);
+}
+
+.section {
+    border-radius: 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5%;
+    
+}
+
+#sezione-intro {
+    margin-bottom: 2%;
+}
+
+#sezione-giocatori {
+    margin-top: 6%;
+}
+
+/* Stile per la sezione della campagna */
+
+.campaign-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 6%;
+}
+
+.campaign-info img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+}
+
+.campaign-info p {
+    font-size: 18px;
+}
+
+/* sezione player */
+
+.four-player-section {
+    display: flex;
+    justify-content: center;
+}
+
+.player-card {
+    width: 17%;
+    margin: 20px;
+    text-align: center;
+    position: relative;
+}
+
+/* Animazione di transizione da giocatore a personaggio */
+
+/* PARTE IMMAGINE */
+.overlay-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1; /* Imposta il livello dell'immagine sovrapposta */
+}
+.fade-img {
+    position: relative;
+    max-height: 300px;
+    max-width: 300px;
+}
+.fade-img img {
+    /* Stile delle immagini */
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 50%;
+
+}
+/*  Necessari per animazione */
+#img1 {
+    opacity: 1;
+    /* Animazione di dissolvenza */
+    -webkit-transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -o-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out, transform 0.5s;
+}
+#img2 {
+    opacity: 0;
+    /* Animazione di dissolvenza */
+    -webkit-transition: opacity 0.7s ease-in-out;
+    -moz-transition: opacity 0.7s ease-in-out;
+    -o-transition: opacity 0.7s ease-in-out;
+    transition: opacity 0.7s ease-in-out, transform 0.5s;
+}
+#img2:hover + #img1 {
+    opacity: 0;
+    transform: scale(1.07);
+}
+#img2:hover {
+    opacity: 1;
+    transform: scale(1.07);
+}
+
+/* PARTE TESTO */
+
+/* Grafica del div player info */
+
+/* Animazione di transizione da testo 1 a testo 2 */
+
+.overlay-name {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1; /* Imposta il livello del testo sovrapposto */
+}
+.fade-names {
+    margin-top: 20px;
+    position: relative;
+    max-width: 300px;
+    text-align: center;
+    font-size: 24px;
+}
+.fade-names p {
+    /* Stile dei testi */
+    font-family: "Bebas Neue";
+    text-transform: uppercase;
+    text-decoration: underline;
+    margin: 0;
+    width: 100%;
+    font-size: 26px;
+    letter-spacing: 1px;
+    font-weight: bold;
+    
+    /* Animazione di dissolvenza */
+    -webkit-transition: opacity 0.2s ease-in-out;
+    -moz-transition: opacity 0.2s ease-in-out;
+    -o-transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.2s ease-out;
+    transition-delay: 0.2s;
+
+}
+/* Necessari per l'animazione */
+#name1 {
+    opacity: 1;
+    margin-top: 10px;
+}
+#name2 {
+    opacity: 0;
+}
+#img2:hover + img + div > #name1 {
+    opacity: 0;
+}
+#img2:hover + img + div > #name2 {
+    opacity: 1;
+}
+
+.player-role {
+    font-size: 18px;
+    letter-spacing: 1px;
+    margin-top: 6px;
+    color: #ffffff;
+}

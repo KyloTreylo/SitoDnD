@@ -48,7 +48,7 @@ app.get('/manuali', (request, response) => {
 
 app.get('/lore', (request, response) => {
     response.render('template', {
-        titolo: "Manuali",
+        titolo: "lore",
         distanza: trovaDistanza(request),
         nomefile: "home-lore"
     })

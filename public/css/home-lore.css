@@ -10,7 +10,12 @@ p {
 
 }
 
-
+.mappa-edean{
+    margin-top: 6%;
+    width:800px;
+    height:450px;
+    border-style: solid;
+}
 
 .lista {
     margin-top: 5%;

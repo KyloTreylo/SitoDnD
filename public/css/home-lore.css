@@ -10,6 +10,9 @@ p {
 
 }
 
+.narrazione {
+    background-image: url(../img/alador.jpg);
+}
 .mappa-edean{
     margin-top: 6%;
     width:800px;

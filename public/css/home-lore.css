@@ -11,7 +11,10 @@ p {
 }
 
 .narrazione {
-    background-image: url(../img/alador.jpg);
+    background-image: url(../img/pagina.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 400px 250px;
 }
 .mappa-edean{
     margin-top: 6%;

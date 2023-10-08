@@ -14,13 +14,6 @@
     src: url(../fonts/Gilgan.otf);
 }
 
-.section {
-    border-radius: 30px;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 5%;
-    
-}
-
 /* CSS Reset */
 * {
     margin: 0;
@@ -98,15 +91,20 @@ nav ul li a {
     position: relative;
 }
 .dropdown-content {
+    visibility: hidden;
     font-size: 14px;
-    display: none;
     position: absolute;
     background-color: rgba(0, 0, 0, 0.9);
     min-width: 160px;
     z-index: 1;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 2s, visibility 2s;
 }
+
 .dropdown:hover .dropdown-content {
-    display: block;
+    visibility: visible;
+    max-height: 1000px;
 }
 
 
@@ -118,6 +116,13 @@ main {
     padding: 2%;
     backdrop-filter: blur(5px); /* Effetto sfuocatura */
     text-align: center;
+}
+
+.section {
+    border-radius: 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5%;
+    
 }
 
 footer {

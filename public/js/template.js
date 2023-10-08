@@ -24,5 +24,8 @@ document.addEventListener("DOMContentLoaded", async function () {
         threshold: [0, 1]
     });
     observer.observe(document.querySelector("header"));
+
+    
     
 });
+

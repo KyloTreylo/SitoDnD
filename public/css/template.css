@@ -36,7 +36,7 @@ header {
     justify-content: center;
     /* Impostare la sua grafica */
     padding: 2%;
-    background-color: rgba(0, 0, 0, 0.7); /* Sfondo con sfumatura nera */
+    background-color: rgba(0, 0, 0, 0.6); /* Sfondo con sfumatura nera */
     color: #fff;
 }
 
@@ -56,11 +56,16 @@ p {
 #navbar {
     font-family: 'Dragon Hunter';
     font-size: 22px;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.7);
     /* Facciamo restare la navbar sticky */
     position: sticky;
     top: 0;
     z-index: 100;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
 }
 
 /* Imposto l'opacità a 1 del background quando tramite js
@@ -69,14 +74,6 @@ capisco che la navbar è diventata sticky */
     background-color: rgba(0, 0, 0, 1) !important;
 }
 
-/* Impostiamo lo stile per i dropdown */
-nav {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: space-around;
-}
 nav a {
     text-decoration: none;
     color: #fff;
@@ -87,21 +84,24 @@ nav a {
 .dropdown {
     position: relative;
 }
+
 .dropdown-content {
     visibility: hidden;
     font-size: 14px;
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.8);
     min-width: 160px;
     z-index: 1;
-    overflow: hidden;
-    max-height: 0;
-    transition: max-height 2s, visibility 2s;
+    opacity: 0;
+    transform-origin: top;
+    transform: scaleY(0);
+    transition: transform 0.5s, visibility 0.5s, opacity 0.5s;
 }
 
 .dropdown:hover .dropdown-content {
+    opacity: 1;
     visibility: visible;
-    max-height: 1000px;
+    transform: scaleY(1);
 }
 
 .sub-dropdown {
@@ -111,19 +111,45 @@ nav a {
     visibility: hidden;
     font-size: 14px;
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.8);
     min-width: 160px;
     z-index: 1;
-    overflow: hidden;
     top: 0;
     left: 100%;
-    max-height: 0;
-    transition: max-height 2s, visibility 2s;
+    border: 0;
+    border-left: 2px;
+    border-color: #fff;
+    border-style: solid;
+    opacity: 0;
+    transform-origin: top;
+    transform: scaleY(0);
+    transition: transform 0.5s, visibility 0.5s, opacity 0.5s;
 }
 
-.dropdown-content a:hover + .sub-dropdown, .sub-dropdown:hover {
+/* Aggiungi questa regola per mostrare il sub-dropdown quando passi sopra l'elemento principale */
+.sub-dropdown:hover .sub-dropdown-content {
+    opacity: 1;
     visibility: visible;
-    max-height: 1000px;
+    transform: scaleY(1);
+}
+
+.arrow {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 7px 6px 0 6px;
+    border-color: #fff transparent transparent transparent;
+    position: absolute;
+    right: 10px; /* Posizione della freccia */
+    top: 43%;
+    transform-origin: center;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Ruota la freccia quando il dropdown è aperto */
+.dropdown:hover > a > .arrow, .sub-dropdown:hover .arrow {
+    transform: rotate(-90deg);
 }
 
 

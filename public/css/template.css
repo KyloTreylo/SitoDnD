@@ -70,17 +70,14 @@ capisco che la navbar è diventata sticky */
 }
 
 /* Impostiamo lo stile per i dropdown */
-nav ul {
+nav {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: space-around;
 }
-nav ul li {
-    position: relative;
-}
-nav ul li a {
+nav a {
     text-decoration: none;
     color: #fff;
     padding: 15px 30px;
@@ -103,6 +100,28 @@ nav ul li a {
 }
 
 .dropdown:hover .dropdown-content {
+    visibility: visible;
+    max-height: 1000px;
+}
+
+.sub-dropdown {
+    position: relative;
+}
+.sub-dropdown-content {
+    visibility: hidden;
+    font-size: 14px;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.9);
+    min-width: 160px;
+    z-index: 1;
+    overflow: hidden;
+    top: 0;
+    left: 100%;
+    max-height: 0;
+    transition: max-height 2s, visibility 2s;
+}
+
+.dropdown-content a:hover + .sub-dropdown, .sub-dropdown:hover {
     visibility: visible;
     max-height: 1000px;
 }

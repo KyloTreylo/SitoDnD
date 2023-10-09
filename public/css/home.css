@@ -29,17 +29,69 @@
     margin-top: 6%;
 }
 
-.campaign-info img {
-    max-width: 100%;
-    height: auto;
-    margin: 20px 0;
-}
-
 .campaign-info p {
     font-size: 18px;
+    margin-top: 3%;
 }
 
-/* sezione player */
+/* CAROUSEL DI IMMAGINI */
+
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    overflow: hidden;
+    border-style: solid;
+    border-color: #ffffff;
+    border-radius: 25px;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    flex: 0 0 100%;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.carousel button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    font-size: 50px;
+    cursor: pointer;
+    color: white; /* Rendiamo le freccette bianche */
+    font-weight: bold; /* Aggiungiamo grassetto per maggiore visibilità */
+    padding: 5px 10px; /* Aggiungiamo spazio intorno alle freccette */
+}
+
+/* PRESENTAZIONE GIOCATORI E PLAYER */
 
 .four-player-section {
     display: flex;

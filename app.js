@@ -21,7 +21,7 @@ app.use('/pdf', express.static(__dirname + 'public/pdf'))
 app.use('/fonts', express.static(__dirname + 'public/fonts'))
 app.use('/js', express.static(__dirname + 'public/js'))
 app.use('/json', express.static(__dirname + 'public/json'))
-app.use('/home', express.static(__dirname + 'public/home-mains'))
+app.use('/html', express.static(__dirname + 'public/html'))
 
 // Set View's
 app.set('views', './views');
@@ -118,29 +118,6 @@ app.get('/manuali/:nomeManuale', (request, response) => {
         distanza: trovaDistanza(request),
         nomefile: "manuali"
     })
-})
-
-// JSON Fetch to get manual info
-app.get('/manuali/search/:nomeManuale', (request, response) => {
-    const {nomeManuale} = request.params;
-    let nomejson;
-    
-    if (nomeManuale=="manuale-giocatore") {
-        nomejson = "Manuale_del_Giocatore"
-    } else if (nomeManuale=="manuale-mostri") {
-        nomejson = "Manuale_dei_Mostri"
-    } else if (nomeManuale=="manuale-dungeon-master") {
-        nomejson = "Manuale_del_Dungeon_Master"
-    } else if (nomeManuale=="manuale-tasha") {
-        nomejson = "Manuale_di_Tasha"
-    } else if (nomeManuale=="manuale-xanathar") {
-        nomejson = "Manuale_di_Xanathar"
-    } else if (nomeManuale=="manuale-eberron") {
-        nomejson = "Manuale_di_Eberron"
-    }
-
-    const data = require(`./public/json/${nomejson}.json`)
-    response.json({data : data})
 })
 
 // Da mettere giù la pagina not found

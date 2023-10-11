@@ -112,7 +112,7 @@ nav a {
     font-size: 14px;
     position: absolute;
     background-color: rgba(0, 0, 0, 0.8);
-    min-width: 160px;
+    min-width: 180px;
     z-index: 1;
     top: 0;
     left: 100%;

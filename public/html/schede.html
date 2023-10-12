@@ -2,14 +2,14 @@
     <span class="passaggio">1)</span>
     <div class="custom-upload-button">
         <input type="file" id="fileInput" accept=".pdf" class="hidden-input">
-        <button class="uploadButton">Scegli file</button>
+        <button class="uploadButtons" onclick="document.getElementById('fileInput').click();">Scegli file</button>
         <span class="nomeFile">Nessun file selezionato</span>
     </div>
 
     <div class="freccia-upload">➔</div>
 
     <span class="passaggio" id="step2">2)</span>
-    <button class="uploadButton">Carica PDF Modificato</button>
+    <button class="uploadButtons" id="uploadButton">Carica PDF Modificato</button>
 </div>
 
 <iframe id="ReaderPDF" src="../../pdf/schede/${data.nomepdf}.pdf" height="900px%" width="100%" frameborder="0"></iframe>

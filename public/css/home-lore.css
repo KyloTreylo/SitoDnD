@@ -22,12 +22,25 @@ span{
     background-position: center;
     background-size: 400px 250px;
 }
+
 .mappa-edean{
     margin-top: 6%;
     width:800px;
     height:450px;
     border-style: solid;
     border-radius: 25px;
+    position: center;
+}
+.imgDescrittive{
+    margin-top: 3%;
+    width:200px;
+    height:200px;
+    border-style: solid;
+    border-radius: 25px;
+}
+.prova{
+    display: inline-block;
+    margin-right: 2%;
 }
 
 .lista {

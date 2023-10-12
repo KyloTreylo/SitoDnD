@@ -16,7 +16,9 @@
     "express": "^4.18.2",
     "fs": "^0.0.1-security",
     "path": "^0.12.7",
-    "pdfjs-dist": "^3.11.174"
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^3.11.174",
+    "util": "^0.12.5"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"

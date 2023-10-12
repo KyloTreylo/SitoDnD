@@ -4,8 +4,6 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
 const fs = require('fs');
-const path = require('path');
-const pdfjsLib = require('pdfjs-dist');
 dotenv.config();
 
 
@@ -16,8 +14,7 @@ const port = 5000
 app.use(cors());
 app.use(express.json());
 
-// Abilita il middleware bodyParser per gestire i dati del modulo di modifica del PDF
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.raw({ type: 'application/pdf' }));
 
 // Static Files
 app.use(express.static('public'));
@@ -156,36 +153,21 @@ app.get('/schede/:nomeScheda', (request, response) => {
             nomefile: "schede"
         })
     } else {
-      res.send('Il PDF è in fase di modifica da un altro utente.');
+        response.send('Il PDF è in fase di modifica da un altro utente.');
     }
-  });
+});
   
 app.post('/save-pdf', async (req, res) => {
-if (isPdfBeingEdited) {
-    try {
-    // Carica il PDF per l'editing
-    const pdfData = fs.readFileSync(path.join(__dirname, 'your-pdf.pdf'));
-    const pdfDocument = await pdfjsLib.getDocument({ data: pdfData }).promise;
+    const pdfData = req.body;
 
-    // Qui dovresti implementare la logica per l'editing del PDF utilizzando PDF.js
-    // Ad esempio, puoi estrarre le pagine, apportare le modifiche e quindi salvare il PDF modificato.
-
-    // Salva il PDF modificato
-    const modifiedPdfBuffer = await pdfDocument.save();
-
-    // Sovrascrivi il file PDF originale con il PDF modificato
-    fs.writeFileSync(path.join(__dirname, 'your-pdf.pdf'), modifiedPdfBuffer);
-
-    // Rilascia il blocco
-    isPdfBeingEdited = false;
-
-    res.send('Modifiche al PDF salvate con successo.');
-    } catch (error) {
-    res.status(500).send('Errore durante il salvataggio delle modifiche al PDF.');
-    }
-} else {
-    res.send('Il PDF è in fase di modifica da un altro utente.');
-}
+    // Salva il PDF modificato sul server
+    fs.writeFile('public/pdf/schede/MileanNema.pdf', pdfData, (err) => {
+        if (err) {
+            res.status(500).send('Errore durante il salvataggio del PDF.');
+        } else {
+            res.send('Modifiche al PDF salvate con successo.');
+        }
+    });
 });
 
 // Da mettere giù la pagina not found

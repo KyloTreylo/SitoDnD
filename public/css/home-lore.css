@@ -11,7 +11,7 @@ span{
 .arcipelaghi {
     text-align: left;
     margin-top: 6%;
-    margin-left: 20%;
+    margin-left: 17%;
     margin-right: 20%;
 
 }
@@ -32,7 +32,7 @@ span{
     position: center;
 }
 .imgDescrittive{
-    margin-top: 3%;
+    margin-top: 2%;
     width:200px;
     height:200px;
     border-style: solid;
@@ -40,7 +40,13 @@ span{
 }
 .prova{
     display: inline-block;
-    margin-right: 2%;
+    margin-right: 3%;
+    margin-top: 6%;
+}
+
+.prova p{
+
+    text-align: center;
 }
 
 .lista {

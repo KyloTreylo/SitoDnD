@@ -1,8 +1,8 @@
 // Imports
 const express = require('express')
+const fileUpload = require('express-fileupload');
 const cors = require('cors');
 const dotenv = require('dotenv');
-const bodyParser = require('body-parser');
 const fs = require('fs');
 dotenv.config();
 
@@ -14,7 +14,7 @@ const port = 5000
 app.use(cors());
 app.use(express.json());
 
-app.use(bodyParser.raw({ type: 'application/pdf' }));
+app.use(fileUpload());
 
 // Static Files
 app.use(express.static('public'));
@@ -122,51 +122,76 @@ app.get('/manuali/:nomeManuale', (request, response) => {
     })
 })
 
-let isPdfBeingEdited = false;
-
 app.get('/schede/:nomeScheda', (request, response) => {
-    if (!isPdfBeingEdited) {
-        isPdfBeingEdited = true;
-        const {nomeScheda} = request.params;
-        let titolo;
-        let trovato = true;
 
-        if (nomeScheda=="milean-nema") {
-            titolo = "Milean Nema";
-        } else if (nomeScheda=="manuale-mostri") {
-            titolo = "Manuale dei mostri";
-        } else if (nomeScheda=="manuale-dungeon-master") {
-            titolo = "Manuale del Dungeon Master";
-        } else if (nomeScheda=="manuale-tasha") {
-            titolo = "Calderone Omnicomprensivo di Tasha";
-        } else if (nomeScheda=="manuale-xanathar") {
-            titolo = "Giuda Omnicomprensiva di Xanathar";
-        } else if (nomeScheda=="manuale-eberron") {
-            titolo = "Eberron: Rising from the Last War";
-        } else {
-            trovato = false
-        }
+    const {nomeScheda} = request.params;
+    let titolo;
+    let trovato = true;
 
-        response.render('template', {
-            titolo: trovato?titolo:"Scheda non presente",
-            distanza: trovaDistanza(request),
-            nomefile: "schede"
-        })
+    if (nomeScheda=="milean-nema") {
+        titolo = "Milean Nema";
+    } else if (nomeScheda=="manuale-mostri") {
+        titolo = "Manuale dei mostri";
+    } else if (nomeScheda=="manuale-dungeon-master") {
+        titolo = "Manuale del Dungeon Master";
+    } else if (nomeScheda=="manuale-tasha") {
+        titolo = "Calderone Omnicomprensivo di Tasha";
+    } else if (nomeScheda=="manuale-xanathar") {
+        titolo = "Giuda Omnicomprensiva di Xanathar";
+    } else if (nomeScheda=="manuale-eberron") {
+        titolo = "Eberron: Rising from the Last War";
     } else {
-        response.send('Il PDF è in fase di modifica da un altro utente.');
+        trovato = false
     }
+
+    response.render('template', {
+        titolo: trovato?titolo:"Scheda non presente",
+        distanza: trovaDistanza(request),
+        nomefile: "schede"
+    })
+   
 });
   
-app.post('/save-pdf', async (req, res) => {
-    const pdfData = req.body;
+app.post('/upload-modified-pdf/:nomeScheda', (request, response) => {
+    const {nomeScheda} = request.params;
 
-    // Salva il PDF modificato sul server
-    fs.writeFile('public/pdf/schede/MileanNema.pdf', pdfData, (err) => {
+    let nomepdf;
+
+    if (nomeScheda=="milean-nema") {
+        nomepdf = "Milean_Nema";
+    } else if (nomeScheda=="manuale-mostri") {
+        titolo = "Manuale dei mostri";
+    } else if (nomeScheda=="manuale-dungeon-master") {
+        titolo = "Manuale del Dungeon Master";
+    } else if (nomeScheda=="manuale-tasha") {
+        titolo = "Calderone Omnicomprensivo di Tasha";
+    } else if (nomeScheda=="manuale-xanathar") {
+        titolo = "Giuda Omnicomprensiva di Xanathar";
+    } else if (nomeScheda=="manuale-eberron") {
+        titolo = "Eberron: Rising from the Last War";
+    }
+
+    if (!request.files || Object.keys(request.files).length === 0) {
+      return response.status(400).send('Nessun file caricato.');
+    }
+  
+    const uploadedFile = request.files.uploadedFile;
+    const filePath = `public/pdf/schede/${nomepdf}.pdf`;
+    const filePathBackup = `public/pdf/schede-backup/${nomepdf}.pdf`;
+  
+    fs.copyFile(filePath, filePathBackup, (err) => {
         if (err) {
-            res.status(500).send('Errore durante il salvataggio del PDF.');
-        } else {
-            res.send('Modifiche al PDF salvate con successo.');
+          return res.status(500).send('Errore nel creare la copia di backup.');
         }
+
+        // Sovrascrivi il file PDF originale con il nuovo file caricato
+        uploadedFile.mv(filePath, (err) => {
+        if (err) {
+            return response.status(500).send('Errore nel caricamento del file.');
+        }
+    
+        response.send('Scheda aggiornata con successo!');
+        });
     });
 });
 

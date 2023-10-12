@@ -45,53 +45,63 @@ async function loadMain(data) {
     .then((html) => {
         main.innerHTML = eval(`\`${html}\``)
     }).then(e=> {
-        // Quando viene premuto il pulsante per estrarre il PDF e inviarlo al server
-        document.getElementById('save-button').addEventListener('click', function() {
-            var iframe = document.getElementById('ReaderPDF'); // Sostituisci 'ilTuoIframe' con l'ID del tuo iframe
-            var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-        
-            // Se il contenuto dell'iframe è costituito da un embed tag
-            var embedTag = iframeDoc.querySelector('embed[type="application/pdf"]');
-            console.log(embedTag)
-            if (embedTag) {
-            var pdfUrl = embedTag.getAttribute('src');
-            console.log(pdfUrl)
-        
-            // Ora che hai l'URL del PDF, puoi inviarlo al server tramite una richiesta Fetch
-            fetch(pdfUrl)
-                .then(function(response) {
-                if (response.ok) {
-                    return response.blob();
-                } else {
-                    throw new Error('Errore nella richiesta Fetch');
-                }
-                })
-                .then(function(pdfBlob) {
-                // Invia il blob del PDF al server
-                var formData = new FormData();
-                formData.append('pdf', pdfBlob, 'nome_del_pdf.pdf'); // Sostituisci 'nome_del_pdf.pdf' con il nome desiderato per il file
-        
-                fetch('/save-pdf', {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(function(serverResponse) {
-                    if (serverResponse.ok) {
-                    // Il PDF è stato inviato con successo al server
-                    } else {
-                    throw Error(`Errore nell'invio del PDF al server`);
-                    }
-                })
-                .catch(function(error) {
-                    console.error(error);
-                });
-                })
-                .catch(function(error) {
-                console.error(error);
-                });
-            }
+
+        const fileInput = document.getElementById('fileInput');
+        const spanFileName = document.querySelector('.custom-upload-button span');
+
+        fileInput.addEventListener('change', () => {
+            const fileName = fileInput.files[0] ? fileInput.files[0].name : 'Nessun file selezionato';
+            spanFileName.textContent = fileName;
         });
 
+        // CARICAMENTO DEL NUOVO FILE
+        const uploadButton = document.getElementById('uploadButton');
+
+        uploadButton.addEventListener('click', () => {
+            const file = fileInput.files[0];
+
+            if (!file) {
+            alert('Seleziona un file PDF prima di caricare.');
+            return;
+            }
+
+            const formData = new FormData();
+            formData.append('uploadedFile', file);
+
+            let nomeScheda = data.nomepdf;
+
+            if (nomeScheda=="Milean_Nema") {
+                nomeScheda = "milean-nema";
+            } else if (nomeScheda=="manuale-mostri") {
+                titolo = "Manuale dei mostri";
+            } else if (nomeScheda=="manuale-dungeon-master") {
+                titolo = "Manuale del Dungeon Master";
+            } else if (nomeScheda=="manuale-tasha") {
+                titolo = "Calderone Omnicomprensivo di Tasha";
+            } else if (nomeScheda=="manuale-xanathar") {
+                titolo = "Giuda Omnicomprensiva di Xanathar";
+            } else if (nomeScheda=="manuale-eberron") {
+                titolo = "Eberron: Rising from the Last War";
+            }
+
+            fetch(`/upload-modified-pdf/${nomeScheda}`, {
+            method: 'POST',
+            body: formData,
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert(data); // Visualizza un messaggio di conferma
+                // Seleziona l'iframe
+                const iframe = document.getElementById('ReaderPDF');
+
+                // Imposta nuovamente l'attributo src con lo stesso URL
+                iframe.src = iframe.src;
+            })
+            .catch(error => {
+                console.error('Errore durante il caricamento del file:', error);
+                alert('Si è verificato un errore durante il caricamento del file.');
+            });
+        });
     })
 }
 

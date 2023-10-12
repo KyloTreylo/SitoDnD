@@ -1,0 +1,80 @@
+@font-face {
+    font-family: "Bebas Neue";
+    src: url(../fonts/BebasNeue-Regular.ttf);
+}
+
+.caricamento-nuovopdf {
+    background: rgba(0, 0, 0, 0.6);
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto; /* Centra orizzontalmente */
+    text-align: center; /* Allinea il testo al centro */
+    padding: 3%;
+    margin-bottom: 2%;
+    border-radius: 30px;
+    align-items: center;
+}
+
+.passaggio {
+    font-size: 50px;
+    margin-right: 2%;
+}
+
+#step2 {
+    margin-left: 50px;
+}
+
+.freccia-upload {
+    font-family: "Bebas Neue";
+    font-size: 60px;
+    color: #fff;
+}
+
+.freccia-upload {
+    animation: arrowMove 1s infinite alternate;
+}
+
+@keyframes arrowMove {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(30px);
+    }
+}
+
+.custom-upload-button {
+    display: flex;
+    align-items: center;
+  }
+  
+.hidden-input {
+    display: none;
+}
+
+.nomeFile {
+    font-size: 25px;
+}
+
+#fileInput, .uploadButton {
+    border: none;
+    margin: 0;
+    text-decoration: none;
+    background:none;
+    color: rgb(255, 255, 255);
+    font-family: "Bebas Neue";
+    font-size: 30px;
+    cursor: pointer;
+    text-align: center;
+    margin: 1%;
+    text-wrap:nowrap;
+}
+
+.uploadButton {
+    color: rgb(0, 0, 0);
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+}
+

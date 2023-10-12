@@ -1,11 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     let titolo = document.title;
+    let nomeManuale;
     let manualePresente = true;
     let nomejson;
 
-    if (titolo=="Manuale del giocatore") {
-        nomejson = "Manuale_del_Giocatore"
+    if (titolo=="Milean Nema") {
+        nomejson = "Milean_Nema"
     } else if (titolo=="Manuale dei mostri") {
         nomejson = "Manuale_dei_Mostri"
     } else if (titolo=="Manuale del Dungeon Master") {
@@ -21,11 +22,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     if (manualePresente) {
-        fetch(`http://localhost:5000/json/manuali/${nomejson}.json`)
+        fetch(`http://localhost:5000/json/schede/${nomejson}.json`)
         .then(response => response.json())
         .then(data => loadMain(data));
     } else {
-        manualeNonTrovato();
+        schedaNonTrovata();
     }
     
 
@@ -39,17 +40,17 @@ async function loadMain(data) {
 
     title.innerHTML = `<h1>${data.titolo}</h1>`;
 
-    fetch('http://localhost:5000/html/manuali.html')
+    fetch('http://localhost:5000/html/schede.html')
     .then(response => response.text())
     .then((html) => {
         main.innerHTML = eval(`\`${html}\``)
     })
 }
 
-async function manualeNonTrovato() {
+async function schedaNonTrovata() {
     const main = document.querySelector("main")
     const title = document.getElementById("div-titolo")
 
-    title.innerHTML = `<h1>Manuale non disponibile nell'archivio!</h1>`;
+    title.innerHTML = `<h1>Scheda non disponibile nell'archivio!</h1>`;
     main.innerHTML = `<img src="../../img/manualeinesistente.png" alt="Error404">`
 }

@@ -6,31 +6,64 @@ span{
     font-family: 'Times New Roman', Times, serif;
 }
 
-
-
-.arcipelaghi {
+.sez {
     text-align: left;
     margin-top: 6%;
     margin-left: 17%;
     margin-right: 20%;
+}
 
+.paragrafo {
+    margin-top: 2%;
+}
+
+.paragrafo p {
+    font-size: 20px;
 }
 
 .narrazione {
     background-image: url(../img/pagina.png);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 400px 250px;
+    width: 100%;
+    height: 100%;
 }
 
-.mappa-edean{
+.narrazione hr {
+    margin: 6% 0%;
+}
+
+.narrazione p {
+    text-align: center;
+    font-size: 25px;
+    color:rgb(255, 255, 255)
+}
+
+.mappa {
+    text-align: center;
     margin-top: 6%;
+}
+
+.img-mappa{
     width:800px;
     height:450px;
     border-style: solid;
     border-radius: 25px;
-    position: center;
 }
+
+.lista-ere {
+    margin-left: 11%;
+}
+
+.lista-ere ol li {
+    font-size: 20px;
+}
+
+.lista-ere ul li {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+
 .imgDescrittive{
     margin-top: 2%;
     width:200px;

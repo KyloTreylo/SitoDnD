@@ -10,7 +10,7 @@
     justify-content: center;
     margin: 0 auto; /* Centra orizzontalmente */
     text-align: center; /* Allinea il testo al centro */
-    padding: 3%;
+    padding: 3% 5%;
     margin-bottom: 2%;
     border-radius: 30px;
     align-items: center;
@@ -29,10 +29,8 @@
     font-family: "Bebas Neue";
     font-size: 60px;
     color: #fff;
-}
-
-.freccia-upload {
     animation: arrowMove 1s infinite alternate;
+    margin-left: 5%;
 }
 
 @keyframes arrowMove {
@@ -47,7 +45,7 @@
 .custom-upload-button {
     display: flex;
     align-items: center;
-  }
+}
   
 .hidden-input {
     display: none;
@@ -55,6 +53,7 @@
 
 .nomeFile {
     font-size: 25px;
+    margin-left: 7%;
 }
 
 #fileInput, .uploadButtons {

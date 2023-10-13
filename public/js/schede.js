@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     if (manualePresente) {
-        fetch(`http://localhost:5000/json/schede/${nomejson}.json`)
+        fetch(`/json/schede/${nomejson}.json`)
         .then(response => response.json())
         .then(data => loadMain(data));
     } else {
@@ -40,7 +40,7 @@ async function loadMain(data) {
 
     title.innerHTML = `<h1>${data.titolo}</h1>`;
 
-    fetch('http://localhost:5000/html/schede.html')
+    fetch('/html/schede.html')
     .then(response => response.text())
     .then((html) => {
         main.innerHTML = eval(`\`${html}\``)
@@ -94,8 +94,12 @@ async function loadMain(data) {
                 // Seleziona l'iframe
                 const iframe = document.getElementById('ReaderPDF');
 
-                // Imposta nuovamente l'attributo src con lo stesso URL
+                // Ricarica l'iframe
                 iframe.src = iframe.src;
+                // Resetta il nome file
+                spanFileName.textContent = "Nessun file selezionato";
+                // Elimina il file caricato nell'input
+                fileInput.value = ""
             })
             .catch(error => {
                 console.error('Errore durante il caricamento del file:', error);

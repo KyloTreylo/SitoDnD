@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     if (manualePresente) {
-        fetch(`http://localhost:5000/json/manuali/${nomejson}.json`)
+        fetch(`/json/manuali/${nomejson}.json`)
         .then(response => response.json())
         .then(data => loadMain(data));
     } else {
@@ -39,7 +39,7 @@ async function loadMain(data) {
 
     title.innerHTML = `<h1>${data.titolo}</h1>`;
 
-    fetch('http://localhost:5000/html/manuali.html')
+    fetch('/html/manuali.html')
     .then(response => response.text())
     .then((html) => {
         main.innerHTML = eval(`\`${html}\``)

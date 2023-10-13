@@ -10,7 +10,7 @@ async function loadMain() {
 
     title.innerHTML = `<h1>Le storie del mondo</h1>`;
 
-	fetch('http://localhost:5000/html/home-lore.html')
+	fetch('/html/home-lore.html')
     .then(response => response.text())
     .then((html) => {
         main.innerHTML = html

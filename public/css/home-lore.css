@@ -14,19 +14,19 @@ span{
 
 .sez {
     text-align: left;
-    margin-top: 3%;
-    margin-left: 17%;
-    margin-right: 20%;
     padding: 5% 10%;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.6);
     border-radius: 50px;
+    width: 60%;
+    margin: 0% 10%;
+    margin-top: 3%;
 }
 
 .introduzione {
-    text-align: left;
     margin-top: 3%;
     margin-left: 20%;
     margin-right: 20%;
+    margin-bottom: 6%;
 }
 
 .paragrafo {
@@ -38,20 +38,26 @@ span{
 }
 
 .narrazione {
-    background-image: url(../img/pagina.png);
+    background-image: url(../img/pergamena.png);
     background-repeat: no-repeat;
     background-position: center;
-    width: 100%;
-    height: 100%;
+    background-size:cover;
+    width: 28%;
+    height: 50%;
+    margin: 3% 0%;
+    display: inline-block;
 }
 
+/*
 .narrazione hr {
     margin: 6% 0%;
 }
+*/
 
 .narrazione p {
+    padding: 15% 20%;
     text-align: center;
-    font-size: 25px;
+    font-size: 15px;
     color:rgb(255, 255, 255)
 }
 

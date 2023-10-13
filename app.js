@@ -66,22 +66,42 @@ app.get('/lore/personaggi', (request, response) => {
 })
 
 app.get('/lore/mondo/:nomeRegione', (request, response) => {
-    const {nomeSezioneLore} = request.params;
+    const {nomeRegione} = request.params;
     let titolo;
     let trovato = true;
 
-    if (nomeSezioneLore=="mondo") {
-        titolo = "Reame terreno";
-    } else if (nomeSezioneLore=="personaggi") {
-        titolo = "I nostri avventurieri";
-    } else {
+    if (nomeRegione=="polis") {
+        titolo = "Polis";
+    } else if (nomeRegione=="ridium") {
+        titolo = "Ridium";
+    }  else if (nomeRegione=="lumines") {
+        titolo = "Lumines";
+    } else if (nomeRegione=="foresta") {
+        titolo = "Le luci fioche";
+    } else if (nomeRegione=="shatten") {
+        titolo = "Shatten";
+    } else if (nomeRegione=="pakt") {
+        titolo = "Pakt Eufel";
+    } else if (nomeRegione=="ecatombe") {
+        titolo = "Ecatombe Est";
+    } else if (nomeRegione=="devy") {
+        titolo = "Devy D. Jones";
+    } else if (nomeRegione=="rlyegh") {
+        titolo = "R'lyegh";
+    } else if (nomeRegione=="cronius") {
+        titolo = "Cronius";
+    } else if (nomeRegione=="vronn") {
+        titolo = "Vronn Dall";
+    } else if (nomeRegione=="ivit") {
+        titolo = "Ivit Fiel";
+    }else {
         trovato = false
     }
 
     response.render('template', {
         titolo: trovato?titolo:"Storia non scritta",
         distanza: trovaDistanza(request),
-        nomefile: "lore"
+        nomefile: "regioni"
     })
 })
 

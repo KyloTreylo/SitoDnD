@@ -14,8 +14,18 @@ span{
 
 .sez {
     text-align: left;
-    margin-top: 6%;
+    margin-top: 3%;
     margin-left: 17%;
+    margin-right: 20%;
+    padding: 5% 10%;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 50px;
+}
+
+.introduzione {
+    text-align: left;
+    margin-top: 3%;
+    margin-left: 20%;
     margin-right: 20%;
 }
 
@@ -46,8 +56,8 @@ span{
 }
 
 .mappa {
-    text-align: center;
     margin-top: 6%;
+    text-align: center;
 }
 
 .img-mappa{
@@ -57,15 +67,21 @@ span{
     border-radius: 25px;
 }
 
-.lista-ere {
+/* Riutilizzabile */
+.didascalia-img {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.lista-tipo {
+    margin-top: 2%;
     margin-left: 11%;
 }
 
-.lista-ere ol li {
+.lista-tipo ol li {
     font-size: 20px;
 }
 
-.lista-ere ul li {
+.lista-tipo ul li {
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
 }

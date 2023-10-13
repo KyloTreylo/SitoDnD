@@ -1,3 +1,9 @@
+@font-face {
+    font-family: "Gilgan";
+    src: url(../fonts/Gilgan.otf);
+}
+
+
 p {
     font-family:'Times New Roman', Times, serif;
 }
@@ -6,11 +12,22 @@ span{
     font-family: 'Times New Roman', Times, serif;
 }
 
+<<<<<<< Updated upstream
 .sez {
+=======
+li{
+    font-family: "Gilgan";
+}
+
+
+
+.arcipelaghi {
+>>>>>>> Stashed changes
     text-align: left;
     margin-top: 6%;
     margin-left: 17%;
     margin-right: 20%;
+<<<<<<< Updated upstream
 }
 
 .paragrafo {
@@ -19,6 +36,8 @@ span{
 
 .paragrafo p {
     font-size: 20px;
+=======
+>>>>>>> Stashed changes
 }
 
 .narrazione {
@@ -87,6 +106,13 @@ span{
     margin-left: 5%;
 
 }
-li{
+
+.scritteDescrittive
+{
+    margin-top: 3%;
+    margin-left: 11%;
+}
+
+.scritteDescrittive li{
     margin-top: 2%;
 }

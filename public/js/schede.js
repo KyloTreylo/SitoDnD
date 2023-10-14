@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     let titolo = document.title;
-    let nomeManuale;
-    let manualePresente = true;
+    let schedaPresente = true;
+    let schedaDisponibile = true
     let nomejson;
 
     if (titolo=="Milean Nema") {
@@ -17,14 +17,18 @@ document.addEventListener('DOMContentLoaded', function () {
         nomejson = "Manuale_di_Xanathar"
     } else if (titolo=="Eberron: Rising from the Last War") {
         nomejson = "Manuale_di_Eberron"
+    } else if (titolo=="Scheda attualmente in modifica") {
+        schedaDisponibile = false
     } else {
-        manualePresente = false
+        schedaPresente = false
     }
 
-    if (manualePresente) {
+    if (schedaPresente) {
         fetch(`/json/schede/${nomejson}.json`)
         .then(response => response.json())
         .then(data => loadMain(data));
+    } else if (!schedaDisponibile) {
+        schedaNonDisponibile();
     } else {
         schedaNonTrovata();
     }
@@ -107,6 +111,14 @@ async function loadMain(data) {
             });
         });
     })
+}
+
+async function schedaNonDisponibile() {
+    const main = document.querySelector("main")
+    const title = document.getElementById("div-titolo")
+
+    title.innerHTML = `<h1>Scheda selezionata in modifica!</h1>`;
+    main.innerHTML = `<img src="../../img/manualeinesistente.png" alt="Error404">`
 }
 
 async function schedaNonTrovata() {

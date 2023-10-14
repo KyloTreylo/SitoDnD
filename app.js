@@ -43,7 +43,7 @@ app.get('', (request, response) => {
 
 app.get('/lore', (request, response) => {
     response.render('template', {
-        titolo: "lore",
+        titolo: "Lore",
         distanza: trovaDistanza(request),
         nomefile: "home-lore"
     })
@@ -142,33 +142,54 @@ app.get('/manuali/:nomeManuale', (request, response) => {
     })
 })
 
+var schedaInUso = [false, false, false, false, false, false, false]
+
 app.get('/schede/:nomeScheda', (request, response) => {
 
     const {nomeScheda} = request.params;
     let titolo;
     let trovato = true;
+    let disponibile = true;
 
     if (nomeScheda=="milean-nema") {
         titolo = "Milean Nema";
+        if (schedaInUso[0] == false){
+            schedaInUso[0] = true
+        } else {
+            disponibile = false;
+        }
     } else if (nomeScheda=="manuale-mostri") {
         titolo = "Manuale dei mostri";
+        schedaInUso[1] = true
     } else if (nomeScheda=="manuale-dungeon-master") {
         titolo = "Manuale del Dungeon Master";
+        indiceMutuaEsclusione = 0
     } else if (nomeScheda=="manuale-tasha") {
         titolo = "Calderone Omnicomprensivo di Tasha";
+        indiceMutuaEsclusione = 0
     } else if (nomeScheda=="manuale-xanathar") {
         titolo = "Giuda Omnicomprensiva di Xanathar";
+        indiceMutuaEsclusione = 0
     } else if (nomeScheda=="manuale-eberron") {
         titolo = "Eberron: Rising from the Last War";
+        indiceMutuaEsclusione = 0
     } else {
         trovato = false
     }
 
-    response.render('template', {
-        titolo: trovato?titolo:"Scheda non presente",
-        distanza: trovaDistanza(request),
-        nomefile: "schede"
-    })
+    if (disponibile) {
+        response.render('template', {
+            titolo: trovato?titolo:"Scheda non presente",
+            distanza: trovaDistanza(request),
+            nomefile: "schede"
+        })
+    } else {
+        response.render('template', {
+            titolo: `Scheda attualmente in modifica`,
+            distanza: trovaDistanza(request),
+            nomefile: "schede"
+        })
+    }
    
 });
   
@@ -179,6 +200,7 @@ app.post('/upload-modified-pdf/:nomeScheda', (request, response) => {
 
     if (nomeScheda=="milean-nema") {
         nomepdf = "Milean_Nema";
+        schedaInUso[0] = false
     } else if (nomeScheda=="manuale-mostri") {
         titolo = "Manuale dei mostri";
     } else if (nomeScheda=="manuale-dungeon-master") {

@@ -237,6 +237,25 @@ app.post('/upload-modified-pdf/:nomeScheda', (request, response) => {
     });
 });
 
+
+app.post('/scheda-nuovamente-disponibile/:nomeScheda', (request, response) => {
+    const {nomeScheda} = request.params;
+
+    if (nomeScheda=="milean-nema") {
+        schedaInUso[0] = false
+    } else if (nomeScheda=="manuale-mostri") {
+        titolo = "Manuale dei mostri";
+    } else if (nomeScheda=="manuale-dungeon-master") {
+        titolo = "Manuale del Dungeon Master";
+    } else if (nomeScheda=="manuale-tasha") {
+        titolo = "Calderone Omnicomprensivo di Tasha";
+    } else if (nomeScheda=="manuale-xanathar") {
+        titolo = "Giuda Omnicomprensiva di Xanathar";
+    } else if (nomeScheda=="manuale-eberron") {
+        titolo = "Eberron: Rising from the Last War";
+    }
+});
+
 // Da mettere giù la pagina not found
 app.get('*', (request, response) => {
     response.render('template', {

@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
         schedaPresente = false
     }
 
-    if (schedaPresente) {
+    if (schedaPresente && schedaDisponibile) {
         fetch(`/json/schede/${nomejson}.json`)
         .then(response => response.json())
         .then(data => loadMain(data));
@@ -88,6 +88,13 @@ async function loadMain(data) {
                 titolo = "Eberron: Rising from the Last War";
             }
 
+            fetch(`/scheda-nuovamente-disponibile/${nomeScheda}`, {
+                method: 'POST',
+                })
+                .catch(error => {
+                    console.error('Errore durante il caricamento del file:', error);
+                });
+
             fetch(`/upload-modified-pdf/${nomeScheda}`, {
             method: 'POST',
             body: formData,
@@ -110,6 +117,32 @@ async function loadMain(data) {
                 alert('Si è verificato un errore durante il caricamento del file.');
             });
         });
+
+        window.addEventListener("beforeunload", function(e){
+            let nomeScheda = data.nomepdf;
+
+            if (nomeScheda=="Milean_Nema") {
+                nomeScheda = "milean-nema";
+            } else if (nomeScheda=="manuale-mostri") {
+                titolo = "Manuale dei mostri";
+            } else if (nomeScheda=="manuale-dungeon-master") {
+                titolo = "Manuale del Dungeon Master";
+            } else if (nomeScheda=="manuale-tasha") {
+                titolo = "Calderone Omnicomprensivo di Tasha";
+            } else if (nomeScheda=="manuale-xanathar") {
+                titolo = "Giuda Omnicomprensiva di Xanathar";
+            } else if (nomeScheda=="manuale-eberron") {
+                titolo = "Eberron: Rising from the Last War";
+            }
+
+            fetch(`/scheda-nuovamente-disponibile/${nomeScheda}`, {
+                method: 'POST',
+            })
+            .catch(error => {
+                console.error('Errore durante il caricamento del file:', error);
+            });
+        });
+
     })
 }
 
@@ -118,7 +151,7 @@ async function schedaNonDisponibile() {
     const title = document.getElementById("div-titolo")
 
     title.innerHTML = `<h1>Scheda selezionata in modifica!</h1>`;
-    main.innerHTML = `<img src="../../img/manualeinesistente.png" alt="Error404">`
+    main.innerHTML = `<img src="../../img/schedainmodifica.png" alt="Error404">`
 }
 
 async function schedaNonTrovata() {
@@ -126,6 +159,6 @@ async function schedaNonTrovata() {
     const title = document.getElementById("div-titolo")
 
     title.innerHTML = `<h1>Scheda non disponibile nell'archivio!</h1>`;
-    main.innerHTML = `<img src="../../img/manualeinesistente.png" alt="Error404">`
+    main.innerHTML = `<img src="../../img/schedainesistente.png" alt="Error404">`
 }
 

@@ -158,9 +158,13 @@ app.get('/schede/:nomeScheda', (request, response) => {
         } else {
             disponibile = false;
         }
-    } else if (nomeScheda=="manuale-mostri") {
-        titolo = "Manuale dei mostri";
-        schedaInUso[1] = true
+    } else if (nomeScheda=="dedachos-nipphos") {
+        titolo = "Dedachos Nipphos";
+        if (schedaInUso[1] == false){
+            schedaInUso[1] = true
+        } else {
+            disponibile = false;
+        }
     } else if (nomeScheda=="manuale-dungeon-master") {
         titolo = "Manuale del Dungeon Master";
         indiceMutuaEsclusione = 0
@@ -202,7 +206,8 @@ app.post('/upload-modified-pdf/:nomeScheda', (request, response) => {
         nomepdf = "Milean_Nema";
         schedaInUso[0] = false
     } else if (nomeScheda=="manuale-mostri") {
-        titolo = "Manuale dei mostri";
+        nomepdf = "Dedachos_Nipphos"
+        schedaInUso[1] = false
     } else if (nomeScheda=="manuale-dungeon-master") {
         titolo = "Manuale del Dungeon Master";
     } else if (nomeScheda=="manuale-tasha") {
@@ -237,14 +242,13 @@ app.post('/upload-modified-pdf/:nomeScheda', (request, response) => {
     });
 });
 
-
 app.post('/scheda-nuovamente-disponibile/:nomeScheda', (request, response) => {
     const {nomeScheda} = request.params;
 
     if (nomeScheda=="milean-nema") {
         schedaInUso[0] = false
-    } else if (nomeScheda=="manuale-mostri") {
-        titolo = "Manuale dei mostri";
+    } else if (nomeScheda=="dedachos-nipphos") {
+        schedaInUso[1] = false
     } else if (nomeScheda=="manuale-dungeon-master") {
         titolo = "Manuale del Dungeon Master";
     } else if (nomeScheda=="manuale-tasha") {

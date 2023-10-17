@@ -51,5 +51,5 @@ async function manualeNonTrovato() {
     const title = document.getElementById("div-titolo")
 
     title.innerHTML = `<h1>Manuale non disponibile nell'archivio!</h1>`;
-    main.innerHTML = `<img src="../../img/manualeinesistente.png" alt="Error404">`
+    main.innerHTML = `<img src="../../img/dragonerrors/manualeinesistente.png" alt="Error404">`
 }

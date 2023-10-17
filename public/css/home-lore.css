@@ -50,11 +50,11 @@ span{
     height: 25rem;
     margin: 2% 0%;
     display: inline-block;
-    transition: transform 1s ease-in-out;
+    transition: transform 0.7s ease-in-out;
 }
 
 .narrazione:hover {
-    transform: scale(1.15);
+    transform: scale(1.17);
 }
 
 .narrazione p {
@@ -106,6 +106,18 @@ span{
     font-size: 20px;
 }
 
+.lista-paragrafata {
+    margin-top: 2%;
+}
+
+.lista-paragrafata ol li {
+    font-size: 20px;
+}
+
+.lista-paragrafata ul li {
+    font-size: 20px;
+}
+
 .imgDescrittive{
     margin-top: 2%;
     width:200px;
@@ -120,22 +132,5 @@ span{
 }
 
 .prova p{
-
     text-align: center;
-}
-
-.lista {
-    margin-top: 5%;
-    margin-left: 5%;
-
-}
-
-.scritteDescrittive
-{
-    margin-top: 3%;
-    margin-left: 11%;
-}
-
-.scritteDescrittive li{
-    margin-top: 2%;
 }

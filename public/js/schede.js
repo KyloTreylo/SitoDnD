@@ -117,8 +117,8 @@ async function loadMain(data) {
                 alert('Si è verificato un errore durante il caricamento del file.');
             });
         });
-
-        $(window).bind('beforeunload', function(eventObject) {
+          
+        $(window).bind('beforeunload', async function() {
             let nomeScheda = data.nomepdf;
 
             if (nomeScheda=="Milean_Nema") {
@@ -135,7 +135,7 @@ async function loadMain(data) {
                 titolo = "Eberron: Rising from the Last War";
             }
 
-            fetch(`/scheda-nuovamente-disponibile/${nomeScheda}`, {
+            await fetch(`/scheda-nuovamente-disponibile/${nomeScheda}`, {
                 method: 'POST',
             })
             .catch(error => {

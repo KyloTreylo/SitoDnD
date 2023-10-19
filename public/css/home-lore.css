@@ -51,6 +51,9 @@ span{
     margin: 2% 0%;
     display: inline-block;
     transition: transform 0.7s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .narrazione:hover {
@@ -59,11 +62,12 @@ span{
 
 .narrazione p {
     font-family: "Enchanted Land";
-    margin: 40% 13%;
+    margin: 0% 13%;
     text-align: center;
     font-size: 17px;
     color:rgb(0, 0, 0)
 }
+
 
 .nar-important {
     font-family: "Enchanted Land";

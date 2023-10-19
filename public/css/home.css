@@ -18,6 +18,9 @@
 
 #sezione-giocatori {
     margin-top: 6%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 /* Stile per la sezione della campagna */

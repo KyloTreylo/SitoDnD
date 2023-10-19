@@ -4,6 +4,7 @@ const fileUpload = require('express-fileupload');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const fs = require('fs');
+const path = require('path')
 dotenv.config();
 
 
@@ -257,7 +258,11 @@ app.post('/scheda-nuovamente-disponibile/:nomeScheda', (request, response) => {
         titolo = "Giuda Omnicomprensiva di Xanathar";
     } else if (nomeScheda=="manuale-eberron") {
         titolo = "Eberron: Rising from the Last War";
+    } else {
+        response.sendStatus(500)
     }
+
+    response.sendStatus(200);
 });
 
 // Da mettere giù la pagina not found
@@ -273,7 +278,7 @@ function trovaDistanza(request) {
     let x = request.originalUrl.split( new RegExp( "/", "gi" ) ).length-2
     let distanza = "";
     for (let i = 0; i < x; i++) {
-        distanza += "../"
+        distanza += `..${path.sep}`
     }
     return distanza;
 }

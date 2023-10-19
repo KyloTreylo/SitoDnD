@@ -137,7 +137,7 @@ async function loadMain(data) {
 
             await fetch(`/scheda-nuovamente-disponibile/${nomeScheda}`, {
                 method: 'POST',
-            })
+            }).then(response => console.log(response))
             .catch(error => {
                 console.error('Errore durante il caricamento del file:', error);
             });

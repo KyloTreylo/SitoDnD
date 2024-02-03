@@ -1,3 +1,4 @@
+//chiedere perche qua non usiamo un Arrow function =>
 document.addEventListener("DOMContentLoaded", async function () {
     const elementsToFadeIn = document.querySelectorAll(".fade-in");
     elementsToFadeIn.forEach(function (element) {

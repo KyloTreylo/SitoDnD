@@ -1,4 +1,4 @@
-// Imports
+// Imports //PER SAMUEL (importa le librerie esterne)
 const express = require('express')
 const fileUpload = require('express-fileupload');
 const cors = require('cors');
@@ -8,7 +8,7 @@ const path = require('path')
 dotenv.config();
 
 
-// Main 
+// Main //PER SAMUEL (definisce la porta dove il server ascolterà)
 const app = express()
 const port = 5000
 
@@ -17,7 +17,7 @@ app.use(express.json());
 
 app.use(fileUpload());
 
-// Static Files
+// Static Files //PER SAMUEL (qua faciamo riferimento alle dir che verranno usate)
 app.use(express.static('public'));
 app.use('/img', express.static(__dirname + 'public/img'))
 app.use('/css', express.static(__dirname + 'public/css'))
@@ -27,11 +27,11 @@ app.use('/js', express.static(__dirname + 'public/js'))
 app.use('/json', express.static(__dirname + 'public/json'))
 app.use('/html', express.static(__dirname + 'public/html'))
 
-// Set View's
+// Set View's //PER SAMUEL (definisce cio che vediamo grazie al template.ejs)
 app.set('views', './views');
 app.set('view engine', 'ejs'); 
 
-// Listen on Port 5000
+// Listen on Port 5000 //PER SAMUEL (cio che ce scritto)
 app.listen(port, () => console.info(`App listening on port ${port}`))
 
 app.get('', (request, response) => {

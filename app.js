@@ -38,7 +38,7 @@ app.use('/json', express.static(__dirname + 'public/json'))
 app.use('/html', express.static(__dirname + 'public/html'))
 
 // Set View's
-app.set('views', './views');
+app.set('views', './backend/views');
 app.set('view engine', 'ejs'); 
 
 // Listen on Port 5000 //PER SAMUEL (cio che ce scritto)

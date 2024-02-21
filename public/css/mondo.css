@@ -29,6 +29,18 @@
     border-radius: 25px;
 }
 
+.pngDescrittivo {
+    margin-top: 6%;
+    width: 500px;
+    height: 281px;
+    text-align: center;
+    border-style: solid;
+    border-radius: 25px;
+    margin: 0 auto; /* Aggiungi questa linea per centrare l'immagine */
+    display: block; /* Aggiungi questa linea per rendere l'immagine un blocco */
+}
+
+
 p {
     font-family:'Times New Roman', Times, serif;
 }

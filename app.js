@@ -54,7 +54,6 @@ app.get('', (request, response) => {
 
 // Not found 404
 app.all('*', (request, response) => {
-    response.render('template', {
     response.render('template', { 
         titolo: "Not found 404",
         distanza: trovaDistanza(request),

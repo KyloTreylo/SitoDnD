@@ -1,11 +1,11 @@
 const express = require('express')
 const router = express.Router()
-const { trovaDistanza } = require('../functions/basics.js')
+const { findDistance } = require('../functions/basics.js')
 
 router.get('/', (req, res) => {
     res.render('template', {
         titolo: "Lore",
-        distanza: trovaDistanza(req),
+        distanza: findDistance(req),
         nomefile: "home-lore"
     })
 })
@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 router.get('/mondo', (req, res) => {
     res.render('template', {
         titolo: "Reame terreno",
-        distanza: trovaDistanza(req),
+        distanza: findDistance(req),
         nomefile: "mondo"
     })
 })
@@ -21,48 +21,65 @@ router.get('/mondo', (req, res) => {
 router.get('/personaggi', (req, res) => {
     res.render('template', {
         titolo: "I nostri avventurieri",
-        distanza: trovaDistanza(req),
+        distanza: findDistance(req),
         nomefile: "personaggi"
     })
 })
 
-router.get('/mondo/:nomeRegione', (req, res) => {
-    const {nomeRegione} = req.params;
-    let titolo;
-    let trovato = true;
+router.get('/mondo/:regionName', (req, res) => {
+    const {regionName} = req.params;
+    let title;
+    let fileName;
+    let pagePath = "regioni";
+    let regionExsist = true;
 
-    if (nomeRegione=="polis") {
-        titolo = "Polis";
-    } else if (nomeRegione=="ridium") {
-        titolo = "Ridium";
-    }  else if (nomeRegione=="lumines") {
-        titolo = "Lumines";
-    } else if (nomeRegione=="foresta") {
-        titolo = "Le luci fioche";
-    } else if (nomeRegione=="shatten") {
-        titolo = "Shatten";
-    } else if (nomeRegione=="pakt") {
-        titolo = "Pakt Eufel";
-    } else if (nomeRegione=="ecatombe") {
-        titolo = "Ecatombe Est";
-    } else if (nomeRegione=="devy") {
-        titolo = "Devy D. Jones";
-    } else if (nomeRegione=="rlyegh") {
-        titolo = "R'lyegh";
-    } else if (nomeRegione=="cronius") {
-        titolo = "Cronius";
-    } else if (nomeRegione=="vronn") {
-        titolo = "Vronn Dall";
-    } else if (nomeRegione=="ivit") {
-        titolo = "Ivit Fiel";
-    }else {
-        trovato = false
+    if (regionName=="polis") {
+        title = "Polis";
+        fileName = "lore"
+    } else if (regionName=="ridium") {
+        title = "Ridium";
+        fileName = "polis"
+    }  else if (regionName=="lumines") {
+        title = "Lumines";
+        fileName = "polis"
+    } else if (regionName=="foresta") {
+        title = "Le luci fioche";
+        fileName = "polis"
+    } else if (regionName=="shatten") {
+        title = "Shatten";
+        fileName = "polis"
+    } else if (regionName=="pakt") {
+        title = "Pakt Eufel";
+        fileName = "polis"
+    } else if (regionName=="ecatombe") {
+        title = "Ecatombe Est";
+        fileName = "polis"
+    } else if (regionName=="devy") {
+        title = "Devy D. Jones";
+        fileName = "polis"
+    } else if (regionName=="rlyegh") {
+        title = "R'lyegh";
+        fileName = "polis"
+    } else if (regionName=="cronius") {
+        title = "Cronius";
+        fileName = "polis"
+    } else if (regionName=="vronn") {
+        title = "Vronn Dall";
+        fileName = "polis"
+    } else if (regionName=="ivit") {
+        title = "Ivit Fiel";
+        fileName = "polis"
+    } else {
+        regionExsist = false
+        pagePath = "notfound"
+        fileName = "lore"
     }
 
     res.render('template', {
-        titolo: trovato?titolo:"Storia non scritta",
-        distanza: trovaDistanza(req),
-        nomefile: "regioni"
+        title: regionExsist?title:"Storia non scritta",
+        distance: findDistance(req),
+        pagePath: pagePath,
+        fileName: fileName,
     })
 })
 

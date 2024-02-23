@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width initial-scale=1.0" />
 
-    <link rel="icon" type="image/x-icon" href="<%=distanza%>img/favicon.png">
-    <link rel="stylesheet" href="<%=distanza%>css/template.css" type="text/css">
-    <link rel="stylesheet" href="<%=distanza%>css/<%=nomefile%>.css" type="text/css">
-    <script src="<%=distanza%>js/template.js"></script>
-    <script src="<%=distanza%>js/<%=nomefile%>.js"></script>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/template.css" type="text/css">
+    <link rel="stylesheet" href="/css/<%=fileName%>.css" type="text/css">
+    <script src="/js/template.js"></script>
+    <script src="/js/<%=fileName%>.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
-    <title> <%=titolo%> </title>
+    <title> <%=title%> </title>
     
 </head>
 <body>
@@ -99,7 +99,10 @@
     </nav>
 
     <main id="home" class="fade-in">
-        <img id="img-notfound" src="<%=distanza%>img/dragonerrors/error404.png" alt="Error404" hidden>
+        <%- 
+            include(`./pages/${pagePath}/${fileName}`)
+        %>
+        <img id="img-notfound" src="/img/dragonerrors/error404.png" alt="Error404" hidden>
     </main>
 
     <footer hidden="true">

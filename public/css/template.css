@@ -1,17 +1,17 @@
 /* Importazione dei font */
 @font-face {
     font-family: "Dragon Hunter";
-    src: url(../fonts/font-header-navbar.otf);
+    src: url(/fonts/font-header-navbar.otf);
 }
 
 @font-face {
     font-family: "Bebas Neue";
-    src: url(../fonts/BebasNeue-Regular.ttf);
+    src: url(/fonts/BebasNeue-Regular.ttf);
 }
 
 @font-face {
     font-family: "Gilgan";
-    src: url(../fonts/Gilgan.otf);
+    src: url(/fonts/Gilgan.otf);
 }
 
 /* CSS Reset */

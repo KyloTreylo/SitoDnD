@@ -1,12 +1,12 @@
 
 @font-face {
     font-family: "Gilgan";
-    src: url(../fonts/Gilgan.otf);
+    src: url(/fonts/Gilgan.otf);
 }
 
 @font-face {
     font-family: "Enchanted Land";
-    src: url(../fonts/Enchanted\ Land.otf);
+    src: url(/fonts/Enchanted\ Land.otf);
 }
 
 .lista {
@@ -75,7 +75,7 @@ span{
 }
 
 .narrazione {
-    background-image: url(../img/pergamena.png);
+    background-image: url(/img/pergamena.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;

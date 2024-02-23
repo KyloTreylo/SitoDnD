@@ -48,6 +48,7 @@ app.get('', (request, response) => {
     response.render('template', {
         titolo: "Home",
         distanza: trovaDistanza(request),
+       distanza: trovaDistanza(request),
         nomefile: "home"
     })
 })

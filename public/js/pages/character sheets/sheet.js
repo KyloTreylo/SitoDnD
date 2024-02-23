@@ -1,23 +1,23 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    let titolo = document.title;
+    let title = document.title;
     let schedaPresente = true;
     let schedaDisponibile = true
     let nomejson;
 
-    if (titolo=="Milean Nema") {
+    if (title=="Milean Nema") {
         nomejson = "Milean_Nema"
-    } else if (titolo=="Dedachos Nipphos") {
+    } else if (title=="Dedachos Nipphos") {
         nomejson = "Dedachos_Nipphos"
-    } else if (titolo=="Manuale del Dungeon Master") {
+    } else if (title=="Manuale del Dungeon Master") {
         nomejson = "Manuale_del_Dungeon_Master"
-    } else if (titolo=="Calderone Omnicomprensivo di Tasha") {
+    } else if (title=="Calderone Omnicomprensivo di Tasha") {
         nomejson = "Manuale_di_Tasha"
-    } else if (titolo=="Giuda Omnicomprensiva di Xanathar") {
+    } else if (title=="Giuda Omnicomprensiva di Xanathar") {
         nomejson = "Manuale_di_Xanathar"
-    } else if (titolo=="Eberron: Rising from the Last War") {
+    } else if (title=="Eberron: Rising from the Last War") {
         nomejson = "Manuale_di_Eberron"
-    } else if (titolo=="Scheda attualmente in modifica") {
+    } else if (title=="Scheda attualmente in modifica") {
         schedaDisponibile = false
     } else {
         schedaPresente = false
@@ -40,9 +40,9 @@ async function loadMain(data) {
 
     // Carica la tabella dei cer
     const main = document.querySelector("main")
-    const title = document.getElementById("div-titolo")
+    const title = document.getElementById("div-title")
 
-    title.innerHTML = `<h1>${data.titolo}</h1>`;
+    title.innerHTML = `<h1>${data.title}</h1>`;
 
     fetch('/html/schede.html')
     .then(response => response.text())
@@ -79,13 +79,13 @@ async function loadMain(data) {
             } else if (nomeScheda=="Dedachos_Nipphos") {
                 nomeScheda = "dedachos-nipphos"
             } else if (nomeScheda=="manuale-dungeon-master") {
-                titolo = "Manuale del Dungeon Master";
+                title = "Manuale del Dungeon Master";
             } else if (nomeScheda=="manuale-tasha") {
-                titolo = "Calderone Omnicomprensivo di Tasha";
+                title = "Calderone Omnicomprensivo di Tasha";
             } else if (nomeScheda=="manuale-xanathar") {
-                titolo = "Giuda Omnicomprensiva di Xanathar";
+                title = "Giuda Omnicomprensiva di Xanathar";
             } else if (nomeScheda=="manuale-eberron") {
-                titolo = "Eberron: Rising from the Last War";
+                title = "Eberron: Rising from the Last War";
             }
 
             fetch(`/scheda-nuovamente-disponibile/${nomeScheda}`, {
@@ -126,13 +126,13 @@ async function loadMain(data) {
             } else if (nomeScheda=="Dedachos_Nipphos") {
                 nomeScheda = "dedachos-nipphos"
             } else if (nomeScheda=="manuale-dungeon-master") {
-                titolo = "Manuale del Dungeon Master";
+                title = "Manuale del Dungeon Master";
             } else if (nomeScheda=="manuale-tasha") {
-                titolo = "Calderone Omnicomprensivo di Tasha";
+                title = "Calderone Omnicomprensivo di Tasha";
             } else if (nomeScheda=="manuale-xanathar") {
-                titolo = "Giuda Omnicomprensiva di Xanathar";
+                title = "Giuda Omnicomprensiva di Xanathar";
             } else if (nomeScheda=="manuale-eberron") {
-                titolo = "Eberron: Rising from the Last War";
+                title = "Eberron: Rising from the Last War";
             }
 
             await fetch(`/scheda-nuovamente-disponibile/${nomeScheda}`, {
@@ -152,13 +152,13 @@ async function loadMain(data) {
             } else if (nomeScheda=="Dedachos_Nipphos") {
                 nomeScheda = "dedachos-nipphos"
             } else if (nomeScheda=="manuale-dungeon-master") {
-                titolo = "Manuale del Dungeon Master";
+                title = "Manuale del Dungeon Master";
             } else if (nomeScheda=="manuale-tasha") {
-                titolo = "Calderone Omnicomprensivo di Tasha";
+                title = "Calderone Omnicomprensivo di Tasha";
             } else if (nomeScheda=="manuale-xanathar") {
-                titolo = "Giuda Omnicomprensiva di Xanathar";
+                title = "Giuda Omnicomprensiva di Xanathar";
             } else if (nomeScheda=="manuale-eberron") {
-                titolo = "Eberron: Rising from the Last War";
+                title = "Eberron: Rising from the Last War";
             }
 
             fetch(`/scheda-nuovamente-disponibile/${nomeScheda}`, {
@@ -175,7 +175,7 @@ async function loadMain(data) {
 
 async function schedaNonDisponibile() {
     const main = document.querySelector("main")
-    const title = document.getElementById("div-titolo")
+    const title = document.getElementById("div-title")
 
     title.innerHTML = `<h1>Scheda selezionata in modifica!</h1>`;
     main.innerHTML = `<img src="../../img/dragonerrors/schedainmodifica.png" alt="Error404">`
@@ -183,7 +183,7 @@ async function schedaNonDisponibile() {
 
 async function schedaNonTrovata() {
     const main = document.querySelector("main")
-    const title = document.getElementById("div-titolo")
+    const title = document.getElementById("div-title")
 
     title.innerHTML = `<h1>Scheda non disponibile nell'archivio!</h1>`;
     main.innerHTML = `<img src="../../img/dragonerrors/schedainesistente.png" alt="Error404">`

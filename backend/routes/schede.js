@@ -1,60 +1,66 @@
 const express = require('express')
 const router = express.Router()
-const { trovaDistanza } = require('../functions/basics')
 const fs = require('fs');
+
+const { pagesPath } = require(`../constants/path`)                   
+
+const sectionPath = `${pagesPath}/character sheets`
 
 /* Trasformare il controllo in un middleware */
 
 var schedaInUso = [false, false, false, false, false, false, false]
 
-router.get('/:nomeScheda', (req, res) => {
+router.get('/:sheetName', (req, res) => {
 
-    const {nomeScheda} = req.params;
-    let titolo;
-    let trovato = true;
+    const {sheetName} = req.params;
+    
+    let title;
+    let sheetExists = true;
     let disponibile = true;
 
-    if (nomeScheda=="milean-nema") {
-        titolo = "Milean Nema";
+    if (sheetName=="milean-nema") {
+        title = "Milean Nema";
         if (schedaInUso[0] == false){
             schedaInUso[0] = true
         } else {
             disponibile = false;
         }
-    } else if (nomeScheda=="dedachos-nipphos") {
-        titolo = "Dedachos Nipphos";
+    } else if (sheetName=="dedachos-nipphos") {
+        title = "Dedachos Nipphos";
         if (schedaInUso[1] == false){
             schedaInUso[1] = true
         } else {
             disponibile = false;
         }
-    } else if (nomeScheda=="manuale-dungeon-master") {
-        titolo = "Manuale del Dungeon Master";
+    } else if (sheetName=="manuale-dungeon-master") {
+        title = "Manuale del Dungeon Master";
         indiceMutuaEsclusione = 0
-    } else if (nomeScheda=="manuale-tasha") {
-        titolo = "Calderone Omnicomprensivo di Tasha";
+    } else if (sheetName=="manuale-tasha") {
+        title = "Calderone Omnicomprensivo di Tasha";
         indiceMutuaEsclusione = 0
-    } else if (nomeScheda=="manuale-xanathar") {
-        titolo = "Giuda Omnicomprensiva di Xanathar";
+    } else if (sheetName=="manuale-xanathar") {
+        title = "Giuda Omnicomprensiva di Xanathar";
         indiceMutuaEsclusione = 0
-    } else if (nomeScheda=="manuale-eberron") {
-        titolo = "Eberron: Rising from the Last War";
+    } else if (sheetName=="manuale-eberron") {
+        title = "Eberron: Rising from the Last War";
         indiceMutuaEsclusione = 0
     } else {
-        trovato = false
+        sheetExists = false
     }
 
     if (disponibile) {
         res.render('template', {
-            titolo: trovato?titolo:"Scheda non presente",
-            distanza: trovaDistanza(req),
-            nomefile: "schede"
+            pageTitle: sheetExists?title:"Scheda non presente",
+            h1Title: sheetExists?title:"Scheda non presente",
+            pagePath: sectionPath + "",
+            fileName: sheetExists?"sheet":"notfound"
         })
     } else {
         res.render('template', {
-            titolo: `Scheda attualmente in modifica`,
-            distanza: trovaDistanza(req),
-            nomefile: "schede"
+            pageTitle: `Scheda attualmente in modifica`,
+            h1Title: `Scheda attualmente in modifica`,
+            pagePath: sectionPath + "",
+            fileName: "waituntil"
         })
     }
    
@@ -72,13 +78,13 @@ router.post('/update/:nomeScheda', (req, res) => {
         nomepdf = "Dedachos_Nipphos"
         schedaInUso[1] = false
     } else if (nomeScheda=="manuale-dungeon-master") {
-        titolo = "Manuale del Dungeon Master";
+        title = "Manuale del Dungeon Master";
     } else if (nomeScheda=="manuale-tasha") {
-        titolo = "Calderone Omnicomprensivo di Tasha";
+        title = "Calderone Omnicomprensivo di Tasha";
     } else if (nomeScheda=="manuale-xanathar") {
-        titolo = "Giuda Omnicomprensiva di Xanathar";
+        title = "Giuda Omnicomprensiva di Xanathar";
     } else if (nomeScheda=="manuale-eberron") {
-        titolo = "Eberron: Rising from the Last War";
+        title = "Eberron: Rising from the Last War";
     }
 
     if (!req.files || Object.keys(req.files).length === 0) {
@@ -113,13 +119,13 @@ router.post('/nuovamenteDisponibile/:nomeScheda', (req, res) => {
     } else if (nomeScheda=="dedachos-nipphos") {
         schedaInUso[1] = false
     } else if (nomeScheda=="manuale-dungeon-master") {
-        titolo = "Manuale del Dungeon Master";
+        title = "Manuale del Dungeon Master";
     } else if (nomeScheda=="manuale-tasha") {
-        titolo = "Calderone Omnicomprensivo di Tasha";
+        title = "Calderone Omnicomprensivo di Tasha";
     } else if (nomeScheda=="manuale-xanathar") {
-        titolo = "Giuda Omnicomprensiva di Xanathar";
+        title = "Giuda Omnicomprensiva di Xanathar";
     } else if (nomeScheda=="manuale-eberron") {
-        titolo = "Eberron: Rising from the Last War";
+        title = "Eberron: Rising from the Last War";
     } else {
         res.sendStatus(500)
     }

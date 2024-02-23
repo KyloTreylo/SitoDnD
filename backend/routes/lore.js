@@ -1,41 +1,49 @@
 const express = require('express')
 const router = express.Router()
-const { findDistance } = require('../functions/basics.js')
+
+const { pagesPath } = require(`../constants/path`)                   
+
+const sectionPath = `${pagesPath}/lore`
 
 router.get('/', (req, res) => {
     res.render('template', {
-        titolo: "Lore",
-        distanza: findDistance(req),
-        nomefile: "home-lore"
+        pageTitle: "Lore",
+        h1Title: "Le storie del mondo",
+        pagePath: sectionPath,
+        fileName: "home"
     })
 })
 
 router.get('/mondo', (req, res) => {
     res.render('template', {
-        titolo: "Reame terreno",
-        distanza: findDistance(req),
-        nomefile: "mondo"
+        pageTitle: "Reame terreno",
+        h1Title: "Edean",
+        pagePath: sectionPath + "/world",
+        fileName: "home"
     })
 })
 
 router.get('/personaggi', (req, res) => {
     res.render('template', {
-        titolo: "I nostri avventurieri",
-        distanza: findDistance(req),
-        nomefile: "personaggi"
+        pageTitle: "I nostri avventurieri",
+        h1Title: "I nostri avventurieri",
+        pagePath: sectionPath + "/characters",
+        fileName: "home"
     })
 })
 
 router.get('/mondo/:regionName', (req, res) => {
+
     const {regionName} = req.params;
+
     let title;
     let fileName;
-    let pagePath = "regioni";
+    let pagePath = "/world";
     let regionExsist = true;
 
     if (regionName=="polis") {
         title = "Polis";
-        fileName = "lore"
+        fileName = "polis"
     } else if (regionName=="ridium") {
         title = "Ridium";
         fileName = "polis"
@@ -71,14 +79,13 @@ router.get('/mondo/:regionName', (req, res) => {
         fileName = "polis"
     } else {
         regionExsist = false
-        pagePath = "notfound"
-        fileName = "lore"
+        fileName = "notfound"
     }
 
     res.render('template', {
-        title: regionExsist?title:"Storia non scritta",
-        distance: findDistance(req),
-        pagePath: pagePath,
+        pageTitle: regionExsist?title:"Storia non scritta",
+        h1Title: regionExsist?title:"Questa storia non esiste... per ora",
+        pagePath: sectionPath + pagePath,
         fileName: fileName,
     })
 })

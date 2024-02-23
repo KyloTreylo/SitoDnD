@@ -1,40 +1,53 @@
 const express = require('express')
 const router = express.Router()
-const { trovaDistanza } = require('../functions/basics')
+
+const { pagesPath } = require(`../constants/path`)                   
+
+const sectionPath = `${pagesPath}/manuals`
 
 router.get('/', (req, res) => {
     res.render('template', {
-        titolo: "Manuali",
-        distanza: trovaDistanza(req),
-        nomefile: "home-manuali"
+        pageTitle: "Manuali",
+        h1Title: "Manuali D&D 5e",
+        pagePath: sectionPath + "",
+        fileName: "home"
     })
 })
 
 router.get('/:nomeManuale', (req, res) => {
+
     const {nomeManuale} = req.params;
-    let titolo;
-    let trovato = true;
+
+    let title = "";
+    let fileName = "manual";
+    let pdfName = "";
+    let manualExists = true;
 
     if (nomeManuale=="manuale-giocatore") {
-        titolo = "Manuale del giocatore";
+        title = "Manuale del giocatore";
     } else if (nomeManuale=="manuale-mostri") {
-        titolo = "Manuale dei mostri";
+        title = "Manuale dei mostri";
     } else if (nomeManuale=="manuale-dungeon-master") {
-        titolo = "Manuale del Dungeon Master";
+        title = "Manuale del Dungeon Master";
     } else if (nomeManuale=="manuale-tasha") {
-        titolo = "Calderone Omnicomprensivo di Tasha";
+        title = "Calderone Omnicomprensivo di Tasha";
     } else if (nomeManuale=="manuale-xanathar") {
-        titolo = "Giuda Omnicomprensiva di Xanathar";
+        title = "Giuda Omnicomprensiva di Xanathar";
     } else if (nomeManuale=="manuale-eberron") {
-        titolo = "Eberron: Rising from the Last War";
+        title = "Eberron: Rising from the Last War";
     } else {
-        trovato = false
+        fileName = "notfound"
+        manualExists = false
     }
 
+    pdfName = title.replaceAll(" ", "_")
+
     res.render('template', {
-        titolo: trovato?titolo:"Manuale non presente",
-        distanza: trovaDistanza(req),
-        nomefile: "manuali"
+        pageTitle: manualExists?title:"Manuale non presente",
+        h1Title: manualExists?title:"Questo manuale non esiste o non è presente!",
+        pagePath: sectionPath + "",
+        fileName: "manual",
+        pdfName: pdfName
     })
 })
 

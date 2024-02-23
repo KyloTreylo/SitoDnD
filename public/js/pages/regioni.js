@@ -1,44 +1,44 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    let titolo = document.title;
+    let title = document.title;
     let manualePresente = true;
     let nomejson;
     let nomehtml;
 
-    if (titolo=="Polis") {
+    if (title=="Polis") {
         nomejson = "Polis"
         nomehtml = "polis"
-    } else if (titolo=="Ridium") {
+    } else if (title=="Ridium") {
         nomejson = "Ridium"
         nomehtml = "ridium"
-    } else if (titolo=="Lumines") {
+    } else if (title=="Lumines") {
         nomejson = "Lumines"
         nomehtml = "lumines"
-    } else if (titolo=="Le luci fioche") {
+    } else if (title=="Le luci fioche") {
         nomejson = "Le_luci_fioche"
         nomehtml = "le-luci-fioche"
-    } else if (titolo=="Shatten") {
+    } else if (title=="Shatten") {
         nomejson = "Shatten"
         nomehtml = "shatten"
-    } else if (titolo=="Pakt Eufel") {
+    } else if (title=="Pakt Eufel") {
         nomejson = "Pakt_Eufel"
         nomehtml = "pakt-eufel"
-    } else if (titolo=="Ecatombe Est") {
+    } else if (title=="Ecatombe Est") {
         nomejson = "Ecatombe_Est"
         nomehtml = "ecatombe-est"
-    }  else if (titolo=="Devy D. Jones") {
+    }  else if (title=="Devy D. Jones") {
         nomejson = "Devy_D_Jones"
         nomehtml = "devy-d-jones"
-    }  else if (titolo=="R'lyegh") {
+    }  else if (title=="R'lyegh") {
         nomejson = "R'lyegh"
         nomehtml = "r-lyegh"
-    }  else if (titolo=="Cronius") {
+    }  else if (title=="Cronius") {
         nomejson = "Cronius"
         nomehtml = "cronius"
-    }  else if (titolo=="Vronn Dall") {
+    }  else if (title=="Vronn Dall") {
         nomejson = "Vronn_Dall"
         nomehtml = "vronn-dall"
-    }  else if (titolo=="Ivit Fiel") {
+    }  else if (title=="Ivit Fiel") {
         nomejson = "Ivit_Fiel"
         nomehtml = "ivit-fiel"
     }  else {
@@ -59,9 +59,9 @@ async function loadMain(data, nomehtml) {
 
     // Carica la tabella dei cer
     const main = document.querySelector("main")
-    const title = document.getElementById("div-titolo")
+    const title = document.getElementById("div-title")
 
-    title.innerHTML = `<h1>${data.titolo}</h1>`;
+    title.innerHTML = `<h1>${data.title}</h1>`;
 
     fetch(`/html/regioni/${nomehtml}.html`)
     .then(response => response.text())
@@ -72,7 +72,7 @@ async function loadMain(data, nomehtml) {
 
 async function manualeNonTrovato() {
     const main = document.querySelector("main")
-    const title = document.getElementById("div-titolo")
+    const title = document.getElementById("div-title")
 
     title.innerHTML = `<h1>Manuale non disponibile nell'archivio!</h1>`;
     main.innerHTML = `<img src="../../img/manualeinesistente.png" alt="Error404">`

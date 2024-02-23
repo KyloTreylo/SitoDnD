@@ -5,9 +5,6 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 dotenv.config();
 
-// Functions
-const { trovaDistanza } = require('./backend/functions/basics')
-
 // Routing imports
 const manualiRouter = require('./backend/routes/manuali')
 const loreRouter = require('./backend/routes/lore')
@@ -44,20 +41,22 @@ app.set('view engine', 'ejs');
 app.listen(port, () => console.info(`App listening on port ${port}`))
 
 // Main Home
-app.get('', (request, response) => {
-    response.render('template', {
-        titolo: "Home",
-        distanza: trovaDistanza(request),
-        nomefile: "home"
+app.get('', (req, res) => {
+    res.render('template', {
+        pageTitle: "Home",
+        h1Title: "Home",
+        pagePath: "pages",
+        fileName: "home"
     })
 })
 
 // Not found 404
-app.all('*', (request, response) => {
-    response.render('template', {
-        titolo: "Not found 404",
-        distanza: trovaDistanza(request),
-        nomefile: "notfound"
+app.all('*', (req, res) => {
+    res.render('template', {
+        pageTitle: "Not found 404",
+        h1Title: "Questa pagina non esiste",
+        pagePath: "pages",
+        fileName: "error404"
     })
 })
 

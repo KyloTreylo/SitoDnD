@@ -6,9 +6,9 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 // Routing imports
-const manualiRouter = require('./backend/routes/manuali')
+const manualiRouter = require('./backend/routes/manuals')
 const loreRouter = require('./backend/routes/lore')
-const schedeRouter = require('./backend/routes/schede')
+const schedeRouter = require('./backend/routes/sheets')
 
 // Main //PER SAMUEL (definisce la porta dove il server ascolterà)
 const app = express()

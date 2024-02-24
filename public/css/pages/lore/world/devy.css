@@ -47,11 +47,12 @@
 
 
 
+
 #wrapper:hover #image {
     transform: scale(2);
-    -webkit-transform: scale(5);
-    left: 60vh;
-    top: 28vh;
+    -webkit-transform: scale(3);
+    left: 90vh;
+    top: 30vh;
     
 }
 

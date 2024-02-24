@@ -46,28 +46,28 @@ router.get('/mondo/:regionName', (req, res) => {
         fileName = "polis"
     } else if (regionName=="ridium") {
         title = "Ridium";
-        fileName = "polis"
+        fileName = "ridium"
     }  else if (regionName=="lumines") {
         title = "Lumines";
-        fileName = "polis"
+        fileName = "lumines"
     } else if (regionName=="foresta") {
         title = "Le luci fioche";
-        fileName = "polis"
+        fileName = "luci-fioche"
     } else if (regionName=="shatten") {
         title = "Shatten";
-        fileName = "polis"
+        fileName = "shatten"
     } else if (regionName=="pakt") {
         title = "Pakt Eufel";
-        fileName = "polis"
+        fileName = "pakt-eufel"
     } else if (regionName=="ecatombe") {
         title = "Ecatombe Est";
-        fileName = "polis"
+        fileName = "ecatombe-est"
     } else if (regionName=="devy") {
         title = "Devy D. Jones";
-        fileName = "polis"
+        fileName = "devy"
     } else if (regionName=="rlyegh") {
         title = "R'lyegh";
-        fileName = "polis"
+        fileName = "r-lyegh"
     } else if (regionName=="cronius") {
         title = "Cronius";
         fileName = "polis"

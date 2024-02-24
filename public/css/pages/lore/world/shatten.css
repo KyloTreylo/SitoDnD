@@ -50,8 +50,8 @@
 #wrapper:hover #image {
     transform: scale(2);
     -webkit-transform: scale(5);
-    left: 60vh;
-    top: 28vh;
+    left: 14vh;
+    top: 85vh;
     
 }
 

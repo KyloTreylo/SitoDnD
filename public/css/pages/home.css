@@ -1,30 +1,8 @@
-.player-grid {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-/* Stile per la sezione della campagna */
-
-.campaign-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 6%;
-}
-
-.campaign-info p {
-    font-size: 18px;
-    margin-top: 3%;
-}
-
 /* CAROUSEL DI IMMAGINI */
 
 .carousel {
     position: relative;
     width: 100%;
-    max-width: 1000px;
     overflow: hidden;
     border-style: solid;
     border-color: #ffffff;
@@ -42,7 +20,6 @@
 
 img {
     width: 100%;
-    height: 100%;
 }
 
 button {
@@ -78,16 +55,29 @@ button {
 
 /* PRESENTAZIONE GIOCATORI E PLAYER */
 
-.four-player-section {
+.player-grid {
+
+    width: 80%;
+
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
+    gap: 3rem;
+
 }
 
 .player-card {
-    width: 17%;
-    margin: 20px;
-    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .4rem;
+
+    width: 14rem;
     position: relative;
+
 }
 
 /* Animazione di transizione da giocatore a personaggio */
@@ -99,19 +89,19 @@ button {
     left: 0;
     z-index: 1; /* Imposta il livello dell'immagine sovrapposta */
 }
+
 .fade-img {
     position: relative;
-    max-height: 300px;
-    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
 }
-.fade-img img {
-    /* Stile delle immagini */
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    border-radius: 50%;
 
+.fade-img img {
+    border-radius: 50%;
 }
+
 /*  Necessari per animazione */
 #img1 {
     opacity: 1;
@@ -150,22 +140,23 @@ button {
     left: 0;
     z-index: 1; /* Imposta il livello del testo sovrapposto */
 }
+
 .fade-names {
-    margin-top: 20px;
     position: relative;
-    max-width: 300px;
-    text-align: center;
-    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-.fade-names p {
+
+.fade-names h3 {
     /* Stile dei testi */
     text-transform: uppercase;
     text-decoration: underline;
-    margin: 0;
+    letter-spacing: 0.07rem;
+
     width: 100%;
-    font-size: 26px;
-    letter-spacing: 1px;
-    font-weight: bold;
+    text-align: center;
     
     /* Animazione di dissolvenza */
     -webkit-transition: opacity 0.2s ease-in-out;
@@ -175,10 +166,10 @@ button {
     transition-delay: 0.2s;
 
 }
+
 /* Necessari per l'animazione */
 #name1 {
     opacity: 1;
-    margin-top: 10px;
 }
 #name2 {
     opacity: 0;
@@ -188,11 +179,4 @@ button {
 }
 #img2:hover + img + div > #name2 {
     opacity: 1;
-}
-
-.player-role {
-    font-size: 18px;
-    letter-spacing: 1px;
-    margin-top: 6px;
-    color: #ffffff;
 }

@@ -42,20 +42,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     startTimer(); 
-    
-    const toggleDescriptions = document.querySelectorAll(".toggle-description");
-
-    toggleDescriptions.forEach(function (toggle) {
-        toggle.addEventListener("click", function () {
-            const description = this.parentElement.nextElementSibling;
-            description.classList.toggle("hidden");
-            if (description.classList.contains("hidden")) {
-                this.textContent = "Mostra dettagli";
-            } else {
-                this.textContent = "Nascondi dettagli";
-            }
-        });
-    });
 
 });
 

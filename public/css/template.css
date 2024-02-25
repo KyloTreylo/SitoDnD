@@ -29,8 +29,7 @@
 }
 
 * {
-    font-family:'Times New Roman', Times, serif;
-    font-size: 3vw;
+    font-size: 2vw;
     color: #fff;
 }
 
@@ -65,7 +64,7 @@ h2, h3 {
     font-family: 'Bebas Neue';
 }
 h2 { 
-    font-size: 3.5rem;
+    font-size: 4.5rem;
 }
 h3 {
     font-size: 1.5rem;
@@ -73,6 +72,10 @@ h3 {
 h4 {
     font-family: 'Gilgan';
     font-size: 1.2rem;
+}
+p {
+    font-family:'Times New Roman', Times, serif;
+    font-size: 1.3rem;
 }
 
 /* Impostiamo le caratteristiche del main,
@@ -103,6 +106,8 @@ section {
     justify-content: space-between;
     align-items: center;
 
+    gap: 1rem;
+
     border-radius: 2rem;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 5%;
@@ -111,7 +116,7 @@ section {
 
 /* Separatori usati nelle section */
 hr {
-    width: 80%;
+    width: 50%;
 }
 
 /* Animazione di Fade-In per al caricamento della pagina */

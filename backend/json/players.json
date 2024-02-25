@@ -11,25 +11,69 @@
         }
     },
     {
-        "name": "Samuel Ibrahimi",
-        "nickname": "Dio primordiale EON",
-        "role": "Player | Main Master",
+        "name": "Nicola Moretta",
+        "nickname": "Milean Nema",
+        "role": "Player | Master",
         "img": {
-            "name": "img/persone/samuel.jpg",
-            "nameAlt": "SamuelIbrahimi",
-            "nickname": "img/players/god.png",
-            "nicknameAlt": "GOD"
+            "name": "img/persone/nicola.jpg",
+            "nameAlt": "NicolaMoretta",
+            "nickname": "img/players/milean.jpg",
+            "nicknameAlt": "Milean"
         }
     },
     {
-        "name": "Samuel Ibrahimi",
-        "nickname": "Dio primordiale EON",
-        "role": "Player | Main Master",
+        "name": "Manuel Demasi",
+        "nickname": "Alador",
+        "role": "Player | Master",
         "img": {
-            "name": "img/persone/samuel.jpg",
-            "nameAlt": "SamuelIbrahimi",
-            "nickname": "img/players/god.png",
-            "nicknameAlt": "GOD"
+            "name": "img/persone/manuel.jpg",
+            "nameAlt": "ManuelDemasi",
+            "nickname": "img/players/alador.jpg",
+            "nicknameAlt": "Alador"
+        }
+    },
+    {
+        "name": "Kevin Xhani",
+        "nickname": "Ecle Tauvros",
+        "role": "Player",
+        "img": {
+            "name": "img/persone/kevin.jpg",
+            "nameAlt": "KevinXhani",
+            "nickname": "img/players/ecle.jpg",
+            "nicknameAlt": "EcleTauvros"
+        }
+    },
+    {
+        "name": "Diego Fausti",
+        "nickname": "Dedachos Nipphos",
+        "role": "Player",
+        "img": {
+            "name": "img/persone/diego.jpg",
+            "nameAlt": "DiegoFausti",
+            "nickname": "img/players/dedachos.jpg",
+            "nicknameAlt": "DedachosNipphos"
+        }
+    },
+    {
+        "name": "Davide Omodei",
+        "nickname": "Conmat",
+        "role": "Player",
+        "img": {
+            "name": "img/persone/davide.jpg",
+            "nameAlt": "DavideOmodei",
+            "nickname": "img/players/conmat.jpg",
+            "nicknameAlt": "Conmat"
+        }
+    },
+    {
+        "name": "Tommaso Cinini",
+        "nickname": "Zaris",
+        "role": "Player",
+        "img": {
+            "name": "img/persone/cino.jpg",
+            "nameAlt": "TommasoCinini",
+            "nickname": "img/players/zaris.png",
+            "nicknameAlt": "Zaris"
         }
     }
 ]

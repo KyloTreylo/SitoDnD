@@ -1,5 +1,5 @@
 <!-- Presentazione campagna -->
-<section class="section" id="sezione-intro">
+<section>
     <h2>LA CAMPAGNA</h2>
     <hr>
     <div class="campaign">
@@ -25,127 +25,127 @@
 </section>
 
 <!-- Presentazione giocatori -->
-<section class="section">
+<section>
     <h2>I GIOCATORI</h2>
-    <hr>
       
-    <div id="sezione-giocatori">
+    <div class="player-grid">
 
-            <!-- Samuel -->
-            <div class="player-card">
-                <div class="player-info"></div>
-                <div class="fade-img">
-                    <img id="img2" class="overlay-image" src="img/players/god.png" alt="GOD">
-                    <img id="img1" src="img/persone/samuel.jpg" alt="SamuelIbrahimi">
-                    <div class="fade-names">
-                        <p id="name1" >Samuel Ibrahimi</p>
-                        <p id="name2" class="overlay-name">Dio primordiale EON</p>
-                    </div>
-                </div>
-                <div class="player-info">
-                    <p class="player-role">Player | Main Master</p>
-                </div>
-            </div>
-            <!-- Nicola -->
-            <div class="player-card">
-                <div class="fade-img">
-                    <img class="overlay-image" id="img2" src="img/players/milean.jpg" alt="Milean">
-                    <img id="img1" src="img/persone/nicola.jpg" alt="SamuelIbrahimi">
-                    <div class="fade-names">
-                        <p id="name1" >Nicola Moretta</p>
-                        <p id="name2" class="overlay-name">Milean Nema</p>
-                    </div>
-                </div>
-                <div class="player-info">
-                    <p class="player-role">Player | Master</p>
+        <% JSON.parse(include(playersPath)).forEach((player) => { %>
+            <%- include('./playercard', {player: player}); %>
+        <% }); %>
+
+        <!-- Samuel -->
+        <div class="player-card">
+            <div class="fade-img">
+                <img id="img2" class="overlay-image" src="img/players/god.png" alt="GOD">
+                <img id="img1" src="img/persone/samuel.jpg" alt="SamuelIbrahimi">
+                <div class="fade-names">
+                    <h3 id="name1" >Samuel Ibrahimi</h3>
+                    <h3 id="name2" class="overlay-name">Dio primordiale EON</h3>
                 </div>
             </div>
-            <!-- Kevin -->
-            <div class="player-card">
-                <div class="fade-img">
-                    <img class="overlay-image" id="img2" src="img/players/ecle.jpg" alt="EcleTauvros">
-                    <img id="img1" src="img/persone/kevin.jpg" alt="KevinXhani">
-                    <div class="fade-names">
-                        <p id="name1" >Kevin Xhani</p>
-                        <p id="name2" class="overlay-name">Ecle Tavros</p>
-                    </div>
-                </div>
-                <div class="player-info">
-                    <p class="player-role">Player</p>
-                </div>
-            </div>
-            <!-- Diego -->
-            <div class="player-card">
-                <div class="fade-img">
-                    <img class="overlay-image" id="img2" src="img/players/dedachos.jpg" alt="DedachosNipphos">
-                    <img id="img1" src="img/persone/diego.jpg" alt="DiegoFausti">
-                    <div class="fade-names">
-                        <p id="name1" >Diego Fausti</p>
-                        <p id="name2" class="overlay-name">Dedachos Gnippohs</p>
-                    </div>
-                </div>
-                <div class="player-info">
-                    <p class="player-role">Player</p>
-                </div>
-            </div>
-            
-            <!-- Davide -->
-            <div class="player-card">
-                <div class="fade-img">                    
-                    <img class="overlay-image" id="img2" src="img/players/conmat.jpg" alt="Conmat">
-                    <img id="img1" src="img/persone/davide.jpg" alt="DavideOmodei">
-                    <div class="fade-names">
-                        <p id="name1" >Davide Omodei</p>
-                        <p id="name2" class="overlay-name">Conmat</p>
-                    </div>
-                </div>
-                <div class="player-info">
-                    <p class="player-role">Player</p>
-                </div>
-            </div>
-            <!-- Tommaso -->
-            <div class="player-card">
-                <div class="fade-img">                    
-                    <img class="overlay-image" id="img2" src="img/players/zaris.png" alt="Zaris">
-                    <img id="img1" src="img/persone/cino.jpg" alt="TommasoCinini">
-                    <div class="fade-names">
-                        <p id="name1" >Tommaso Cinini</p>
-                        <p id="name2" class="overlay-name">Zaris</p>
-                    </div>
-                </div>
-                <div class="player-info">
-                    <p class="player-role">Player</p>
-                </div>
-            </div>
-            <!-- Manuel -->
-            <div class="player-card">
-                <div class="fade-img">
-                    <img class="overlay-image" id="img2" src="img/players/alador.jpg" alt="Alador">
-                    <img id="img1" src="img/persone/manuel.jpg" alt="ManuelDemasi">
-                    <div class="fade-names">
-                        <p id="name1" >Manuel Demasi</p>
-                        <p id="name2" class="overlay-name">Alador</p>
-                    </div>
-                </div>
-                <div class="player-info">
-                    <p class="player-role">Player</p>
-                </div>
-            </div>
-            <!-- Philemon -->
-            <div class="player-card">
-                <div class="fade-img">
-                    <img class="overlay-image" id="img2" src="img/players/alatus.jpg" alt="Alatus">
-                    <img id="img1" src="img/persone/philemon.jpg" alt="PhilemonBekele">
-                    <div class="fade-names">
-                        <p id="name1" >Philemon Bekele</p>
-                        <p id="name2" class="overlay-name">Alatus</p>
-                    </div>
-                </div>
-                <div class="player-info">
-                    <p class="player-role">Player</p>
-                </div>
+            <div class="player-info">
+                <p class="player-role">Player | Main Master</p>
             </div>
         </div>
-
-
+        <!-- Nicola -->
+        <div class="player-card">
+            <div class="fade-img">
+                <img class="overlay-image" id="img2" src="img/players/milean.jpg" alt="Milean">
+                <img id="img1" src="img/persone/nicola.jpg" alt="SamuelIbrahimi">
+                <div class="fade-names">
+                    <h3 id="name1" >Nicola Moretta</h3>
+                    <h3 id="name2" class="overlay-name">Milean Nema</h3>
+                </div>
+            </div>
+            <div class="player-info">
+                <p class="player-role">Player | Master</p>
+            </div>
+        </div>
+        <!-- Kevin -->
+        <div class="player-card">
+            <div class="fade-img">
+                <img class="overlay-image" id="img2" src="img/players/ecle.jpg" alt="EcleTauvros">
+                <img id="img1" src="img/persone/kevin.jpg" alt="KevinXhani">
+                <div class="fade-names">
+                    <h3 id="name1" >Kevin Xhani</h3>
+                    <h3 id="name2" class="overlay-name">Ecle Tavros</h3>
+                </div>
+            </div>
+            <div class="player-info">
+                <p class="player-role">Player</p>
+            </div>
+        </div>
+        <!-- Diego -->
+        <div class="player-card">
+            <div class="fade-img">
+                <img class="overlay-image" id="img2" src="img/players/dedachos.jpg" alt="DedachosNipphos">
+                <img id="img1" src="img/persone/diego.jpg" alt="DiegoFausti">
+                <div class="fade-names">
+                    <h3 id="name1" >Diego Fausti</h3>
+                    <h3 id="name2" class="overlay-name">Dedachos Gnippohs</h3>
+                </div>
+            </div>
+            <div class="player-info">
+                <p class="player-role">Player</p>
+            </div>
+        </div>
+        
+        <!-- Davide -->
+        <div class="player-card">
+            <div class="fade-img">                    
+                <img class="overlay-image" id="img2" src="img/players/conmat.jpg" alt="Conmat">
+                <img id="img1" src="img/persone/davide.jpg" alt="DavideOmodei">
+                <div class="fade-names">
+                    <h3 id="name1" >Davide Omodei</h3>
+                    <h3 id="name2" class="overlay-name">Conmat</h3>
+                </div>
+            </div>
+            <div class="player-info">
+                <p class="player-role">Player</p>
+            </div>
+        </div>
+        <!-- Tommaso -->
+        <div class="player-card">
+            <div class="fade-img">                    
+                <img class="overlay-image" id="img2" src="img/players/zaris.png" alt="Zaris">
+                <img id="img1" src="img/persone/cino.jpg" alt="TommasoCinini">
+                <div class="fade-names">
+                    <h3 id="name1" >Tommaso Cinini</h3>
+                    <h3 id="name2" class="overlay-name">Zaris</h3>
+                </div>
+            </div>
+            <div class="player-info">
+                <p class="player-role">Player</p>
+            </div>
+        </div>
+        <!-- Manuel -->
+        <div class="player-card">
+            <div class="fade-img">
+                <img class="overlay-image" id="img2" src="img/players/alador.jpg" alt="Alador">
+                <img id="img1" src="img/persone/manuel.jpg" alt="ManuelDemasi">
+                <div class="fade-names">
+                    <h3 id="name1" >Manuel Demasi</h3>
+                    <h3 id="name2" class="overlay-name">Alador</h3>
+                </div>
+            </div>
+            <div class="player-info">
+                <p class="player-role">Player</p>
+            </div>
+        </div>
+        <!-- Philemon -->
+        <div class="player-card">
+            <div class="fade-img">
+                <img class="overlay-image" id="img2" src="img/players/alatus.jpg" alt="Alatus">
+                <img id="img1" src="img/persone/philemon.jpg" alt="PhilemonBekele">
+                <div class="fade-names">
+                    <h3 id="name1" >Philemon Bekele</h3>
+                    <h3 id="name2" class="overlay-name">Alatus</h3>
+                </div>
+            </div>
+            <div class="player-info">
+                <p class="player-role">Player</p>
+            </div>
+        </div>
+    </div>
 </section>

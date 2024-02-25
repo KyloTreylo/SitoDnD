@@ -1,32 +1,55 @@
+/* Eric Meyer CSS Reset */
+
+@import url('/css/emcssreset.css');
+
+/* Css partials (header, navbar, footer) */
+
+@import url('/css/partials/header.css');
+@import url('/css/partials/nav.css');
+@import url('/css/partials/footer.css');
+
 /* Importazione dei font */
+
+/* Font per h1 */
 @font-face {
     font-family: "Dragon Hunter";
     src: url(/fonts/font-header-navbar.otf);
 }
 
+/* Font per h2 e h3 */
 @font-face {
     font-family: "Bebas Neue";
     src: url(/fonts/BebasNeue-Regular.ttf);
 }
 
+/* Font h4 */
 @font-face {
     font-family: "Gilgan";
     src: url(/fonts/Gilgan.otf);
 }
 
-/* CSS Reset */
 * {
-    margin: 0;
-    padding: 0;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 3vw;
+    color: #fff;
 }
 
 body {
+
+    width: 100%;
+    height: auto;
+
+    /* Padding e margin vanno a rubare spazio alla width senza andare oltre*/
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+
+    /* Il body diventa un contenitore flexbox */ 
     display: flex;
     flex-flow: row wrap;
 
-    /* Background e font */
-    font-family: "Bebas Neue";
-    background-image: url('../img/sfondo.jpg'); /* Aggiungi un'immagine fantasy di sfondo */
+    /* Background */
+    background-image: url('../img/sfondo.jpg');
     background-size: cover;
     background-attachment: fixed; /* Rendi lo sfondo fisso mentre scorri la pagina */
     background-repeat: no-repeat;
@@ -36,171 +59,59 @@ body {
 /* Impostazione del font e grandezze dei titoli */
 h1 {
     font-family: 'Dragon Hunter'; 
-    font-size: 300%;
+    font-size: 3rem;
 }
-h2 {
-    font-family: 'Bebas Neue'; 
-    font-size: 600%;
+h2, h3 {
+    font-family: 'Bebas Neue';
+}
+h2 { 
+    font-size: 3.5rem;
 }
 h3 {
-    font-family: 'Bebas Neue'; 
-    font-size: 25px;
+    font-size: 1.5rem;
 }
-
-p {
-    font-family: "Gilgan";
+h4 {
+    font-family: 'Gilgan';
+    font-size: 1.2rem;
 }
-
-header {
-    width: 100vw;
-
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-
-    /* Impostare la sua grafica */
-    padding: 2%;
-    background-color: rgba(0, 0, 0, 0.6); /* Sfondo con sfumatura nera */
-    color: #fff;
-}
-
-#navbar {
-    width: 100%;
-
-    font-family: 'Dragon Hunter';
-    font-size: calc(1em + 1.5vh);
-    background-color: rgba(0, 0, 0, 0.7);
-    
-    /* Facciamo restare la navbar sticky */
-    position: sticky;
-    top: 0;
-    z-index: 2; /* Sopra tutto */
-
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-}
-
-/* Imposto l'opacità a 1 del background quando tramite js
-capisco che la navbar è diventata sticky */
-.nav-container-sticky {
-    background-color: rgba(0, 0, 0, 1) !important;
-}
-
-nav a {
-    width: auto;
-    text-decoration: none;
-    color: #fff;
-    padding: 15px 30px;
-    display: inline-block;
-}
-
-.dropdown {
-    position: relative;
-}
-
-.dropdown-content {
-    visibility: hidden;
-    font-size: 14px;
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.9);
-    min-width: 160px;
-    z-index: 1;
-    opacity: 0;
-    transform-origin: top;
-    transform: scaleY(0);
-    transition: transform 0.5s, visibility 0.5s, opacity 0.5s;
-}
-
-.dropdown:hover .dropdown-content {
-    opacity: 1;
-    visibility: visible;
-    transform: scaleY(1);
-}
-
-.sub-dropdown {
-    position: relative;
-}
-.sub-dropdown-content {
-    visibility: hidden;
-    font-size: 14px;
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.9);
-    min-width: 180px;
-    z-index: 1;
-    top: 0;
-    left: 100%;
-    border: 0;
-    border-left: 2px;
-    border-color: #fff;
-    border-style: solid;
-    opacity: 0;
-    transform-origin: top;
-    transform: scaleY(0);
-    transition: transform 0.5s, visibility 0.5s, opacity 0.5s;
-}
-
-/* Aggiungi questa regola per mostrare il sub-dropdown quando passi sopra l'elemento principale */
-.sub-dropdown:hover .sub-dropdown-content {
-    opacity: 1;
-    visibility: visible;
-    transform: scaleY(1);
-}
-
-.arrow {
-    display: inline-block;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 7px 6px 0 6px;
-    border-color: #fff transparent transparent transparent;
-    position: absolute;
-    right: 10px; /* Posizione della freccia */
-    top: 43%;
-    transform-origin: center;
-    transition: transform 0.5s ease-in-out;
-}
-
-/* Ruota la freccia quando il dropdown è aperto */
-.dropdown:hover > a > .arrow, .sub-dropdown:hover .arrow {
-    transform: rotate(-90deg);
-}
-
 
 /* Impostiamo le caratteristiche del main,
 anch'esso uguale per tutte le pagine*/
 main {
-    width: 100vw;
+
+    width: 100%;
+
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
+    gap: 2rem;
 
     background-color: rgba(0, 0, 0, 0.2);
-    color: #fff;
-    padding: 2%;
+    padding: 2rem;
     backdrop-filter: blur(5px); /* Effetto sfuocatura */
+
 }
 
-.section {
+/* Preparo le section che sono la base di quasi ogni pagina */
+section {
+
     width: 100%;
+
     display: flex;
     flex-flow: column wrap;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 
-    border-radius: 30px;
+    border-radius: 2rem;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 5%;
+
 }
 
-footer {
-    width: 100%;
-    text-align: center;
-    padding: 2%;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: #fff;
+/* Separatori usati nelle section */
+hr {
+    width: 80%;
 }
 
 /* Animazione di Fade-In per al caricamento della pagina */

@@ -1,19 +1,7 @@
-@font-face {
-    font-family: "Gilgan";
-    src: url(/fonts/Gilgan.otf);
-}
-
+/* Font x pergamene */
 @font-face {
     font-family: "Enchanted Land";
     src: url(/fonts/Enchanted\ Land.otf);
-}
-
-p {
-    font-family:'Times New Roman', Times, serif;
-}
-
-span{
-    font-family: 'Times New Roman', Times, serif;
 }
 
 .sez {

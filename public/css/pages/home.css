@@ -1,24 +1,6 @@
-/* stile generale della pagina */
-
-@font-face {
-    font-family: "Bebas Neue";
-    src: url(/fonts/BebasNeue-Regular.ttf);
-}
-
-.section {
-    border-radius: 30px;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 5%;
-    
-}
-
-#sezione-intro {
-    margin-bottom: 2%;
-}
-
-#sezione-giocatori {
-    margin-top: 6%;
-    display: flex;
+.player-grid {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
     flex-wrap: wrap;
     justify-content: center;
 }
@@ -177,7 +159,6 @@ button {
 }
 .fade-names p {
     /* Stile dei testi */
-    font-family: "Bebas Neue";
     text-transform: uppercase;
     text-decoration: underline;
     margin: 0;

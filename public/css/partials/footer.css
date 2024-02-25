@@ -1,0 +1,10 @@
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 2%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.footer-content p {
+    font-family: "Gilgan";
+}

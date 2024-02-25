@@ -46,7 +46,8 @@ app.get('', (req, res) => {
         pageTitle: "Home",
         h1Title: "Home",
         pagePath: "pages",
-        fileName: "home"
+        fileName: "home",
+        playersPath: `${__dirname}/backend/json/players.json`
     })
 })
 

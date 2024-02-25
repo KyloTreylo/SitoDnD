@@ -1,0 +1,12 @@
+header {
+    width: 100vw;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+
+    /* Impostare la sua grafica */
+    padding: 2%;
+    background-color: rgba(0, 0, 0, 0.6); /* Sfondo con sfumatura nera */
+}

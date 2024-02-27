@@ -9,6 +9,7 @@ dotenv.config();
 const manualiRouter = require('./backend/routes/manuals')
 const loreRouter = require('./backend/routes/lore')
 const schedeRouter = require('./backend/routes/sheets')
+const rolldiceRouter = require('./backend/routes/rolldice')
 
 // Main //PER SAMUEL (definisce la porta dove il server ascolterà)
 const app = express()
@@ -23,6 +24,7 @@ app.use(fileUpload());
 app.use('/manuali', manualiRouter)
 app.use('/lore', loreRouter)
 app.use('/schede', schedeRouter)
+app.use('/tavolata', rolldiceRouter)
 
 // Static Files //PER SAMUEL (qua faciamo riferimento alle dir che verranno usate)
 app.use(express.static('public'));

@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
     })
 })
 
-router.get('/mondo', (req, res) => {
+router.get('/regioni', (req, res) => {
     res.render('template', {
         pageTitle: "Reame terreno",
         h1Title: "Edean",
@@ -32,7 +32,7 @@ router.get('/personaggi', (req, res) => {
     })
 })
 
-router.get('/mondo/:regionName', (req, res) => {
+router.get('/regioni/:regionName', (req, res) => {
 
     const {regionName} = req.params;
 

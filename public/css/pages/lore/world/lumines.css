@@ -46,7 +46,7 @@
 }
 
 
-
+/* da modificare per le immagini interattive*/
 #wrapper:hover #image {
     transform: scale(2);
     -webkit-transform: scale(7);
@@ -83,10 +83,11 @@ span{
 
 .paragrafo {
     margin-top: 2%;
+    /*align-items: left;*/
 }
 
 .paragrafo p {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .narrazione {
@@ -170,19 +171,17 @@ span{
     font-size: 20px;
 }
 
-.imgDescrittive{
+.img-supp{
     margin-top: 2%;
-    width:200px;
-    height:200px;
+    width:20vh;
+    height:30vh;
     border-style: solid;
     border-radius: 25px;
 }
-.prova{
+
+.div-centralizza{
+    text-align: center;
     display: inline-block;
     margin-right: 3%;
     margin-top: 6%;
-}
-
-.prova p{
-    text-align: center;
 }

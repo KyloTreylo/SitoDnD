@@ -18,7 +18,7 @@ router.get('/regioni', (req, res) => {
     res.render('template', {
         pageTitle: "Reame terreno",
         h1Title: "Edean",
-        pagePath: sectionPath + "/world",
+        pagePath: sectionPath + "/regions",
         fileName: "home"
     })
 })
@@ -38,7 +38,7 @@ router.get('/regioni/:regionName', (req, res) => {
 
     let title;
     let fileName;
-    let pagePath = "/world";
+    let pagePath = "/regions";
     let regionExsist = true;
 
     if (regionName=="polis") {

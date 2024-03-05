@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
     })
 })
 
-router.get('/soundtrack', (req, res) => {
+router.get('/soundtracks', (req, res) => {
     res.render('template', {
         pageTitle: "Musiche",
         h1Title: "per un'immersione migliore",

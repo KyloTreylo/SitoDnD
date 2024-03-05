@@ -4,32 +4,50 @@
     src: url(/fonts/Enchanted\ Land.otf);
 }
 
-.sez {
-    text-align: left;
-    padding: 5% 10%;
-    background-color: rgba(0, 0, 0, 0.6);
-    border-radius: 50px;
+article {
     width: 60%;
-    margin: 0% 10%;
-    margin-top: 3%;
+    padding: 5% 10%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+
+
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 3vw;
 }
 
-.introduzione {
-    margin-top: 3%;
-    margin-left: 20%;
-    margin-right: 20%;
-    margin-bottom: 6%;
+.div-mappa {
+    width: 70%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: calc(.6vw + .4rem);
 }
 
-.paragrafo {
-    margin-top: 2%;
+.div-mappa img {
+    width: 100%;
+
+    border: calc(.2vw + .2rem) solid white;
+    border-radius: 3vw;
 }
 
-.paragrafo p {
-    font-size: 20px;
+.div-mappa p {
+    font-style: italic;
 }
 
-.narrazione {
+.box-pergamena {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pergamena {
     background-image: url(/img/pergamena.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -44,11 +62,11 @@
     justify-content: center;
 }
 
-.narrazione:hover {
+.pergamena:hover {
     transform: scale(1.17);
 }
 
-.narrazione p {
+.pergamena p {
     font-family: "Enchanted Land";
     margin: 0% 13%;
     text-align: center;
@@ -56,73 +74,8 @@
     color:rgb(0, 0, 0)
 }
 
-
-.nar-important {
+.pergamena p cite {
     font-family: "Enchanted Land";
     font-size: 25px;
 }
 
-.blocco-nar {
-    display: flex;
-    justify-content:center;
-}
-
-.mappa {
-    margin-top: 6%;
-    text-align: center;
-}
-
-.img-mappa{
-    width:800px;
-    height:450px;
-    border-style: solid;
-    border-radius: 25px;
-}
-
-/* Riutilizzabile */
-.didascalia-img {
-    font-family: 'Times New Roman', Times, serif;
-}
-
-.lista-tipo {
-    margin-top: 2%;
-    margin-left: 11%;
-}
-
-.lista-tipo ol li {
-    font-size: 20px;
-}
-
-.lista-tipo ul li {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 20px;
-}
-
-.lista-paragrafata {
-    margin-top: 2%;
-}
-
-.lista-paragrafata ol li {
-    font-size: 20px;
-}
-
-.lista-paragrafata ul li {
-    font-size: 20px;
-}
-
-.imgDescrittive{
-    margin-top: 2%;
-    width:200px;
-    height:200px;
-    border-style: solid;
-    border-radius: 25px;
-}
-.prova{
-    display: inline-block;
-    margin-right: 3%;
-    margin-top: 6%;
-}
-
-.prova p{
-    text-align: center;
-}

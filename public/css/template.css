@@ -29,7 +29,6 @@
 }
 
 * {
-    font-size: 2vw;
     color: #fff;
 }
 
@@ -58,13 +57,13 @@ body {
 /* Impostazione del font e grandezze dei titoli */
 h1 {
     font-family: 'Dragon Hunter'; 
-    font-size: 3rem;
+    font-size: calc(1vw + 2rem);
 }
 h2, h3 {
     font-family: 'Bebas Neue';
 }
 h2 { 
-    font-size: 4.5rem;
+    font-size: calc(2.5vw + 2rem);
 }
 h3 {
     font-size: 1.5rem;
@@ -88,10 +87,10 @@ main {
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: calc(1.5vw + 1rem);
 
     background-color: rgba(0, 0, 0, 0.2);
-    padding: 2rem;
+    padding: calc(1.5vw + 1rem);
     backdrop-filter: blur(5px); /* Effetto sfuocatura */
 
 }
@@ -106,11 +105,11 @@ section {
     justify-content: space-between;
     align-items: center;
 
-    gap: 1rem;
+    gap: calc(.9vw + .6rem);
 
     border-radius: 2rem;
     background-color: rgba(0, 0, 0, 0.5);
-    padding: 5%;
+    padding: calc(2.1vw + 1.4rem);
 
 }
 

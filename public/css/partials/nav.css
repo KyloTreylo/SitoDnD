@@ -1,7 +1,7 @@
 nav {
     width: 100%;
+    font-size: calc(1.2vw + .8rem);
 
-    font-size: calc(1em + 1.5vh);
     background-color: rgba(0, 0, 0, 0.7);
     
     /* Facciamo restare la navbar sticky */
@@ -17,15 +17,35 @@ nav {
 /* Imposto l'opacità a 1 del background quando tramite js
 capisco che la navbar è diventata sticky */
 .nav-container-sticky {
-    background-color: rgba(0, 0, 0, 1) !important;
+    background-color: rgba(0, 0, 0, 1);
 }
 
 nav a {
     font-family: 'Dragon Hunter';
-    width: auto;
     text-decoration: none;
-    padding: 15px 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: calc(.5vw + .2em);
+
+    padding: calc(.4vw + .4em) calc(1vw + .7em);
+}
+
+.arrow {
     display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0.3em .25em 0 0.25em;
+    border-color: #fff transparent transparent transparent;
+    transform-origin: center;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Ruota la freccia quando il dropdown è aperto */
+.dropdown:hover > a > .arrow, .sub-dropdown:hover .arrow {
+    transform: rotate(-90deg);
 }
 
 .dropdown {
@@ -33,16 +53,30 @@ nav a {
 }
 
 .dropdown-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: calc(.9vw + .6rem);
+
+    padding: calc(.9vw + .6rem) 0;
+    box-sizing: border-box;
+
+    width: max-content;
+    min-width: 100%;
+
     visibility: hidden;
-    font-size: 14px;
+    font-size: .6em;
     position: absolute;
     background-color: rgba(0, 0, 0, 0.9);
-    min-width: 160px;
     z-index: 1;
     opacity: 0;
     transform-origin: top;
     transform: scaleY(0);
     transition: transform 0.5s, visibility 0.5s, opacity 0.5s;
+}
+
+.dropdown-content a {
+    padding: calc(.1vw + .08em) calc(.9vw + .6em) ;
 }
 
 .dropdown:hover .dropdown-content {
@@ -56,16 +90,25 @@ nav a {
 }
 
 .sub-dropdown-content {
+    position: relative;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: calc(.9vw + .6em);
+
+    padding: calc(.9vw + .6rem) 0;
+
+    width: max-content;
     visibility: hidden;
-    font-size: 14px;
+    font-size: 1em;
     position: absolute;
     background-color: rgba(0, 0, 0, 0.9);
-    min-width: 180px;
     z-index: 1;
     top: 0;
     left: 100%;
-    border: 0;
-    border-left: 2px;
+    top: calc(-.9vw - .6rem);
+    border-left: calc(.2vw + .1rem);
     border-color: #fff;
     border-style: solid;
     opacity: 0;
@@ -74,28 +117,17 @@ nav a {
     transition: transform 0.5s, visibility 0.5s, opacity 0.5s;
 }
 
+.reverse {
+    border-left: 0;
+    border-right: calc(.2vw + .1rem);
+    border-style: solid;
+    border-color: #fff;
+    left: calc(-100% + .9vw + .6rem - .2vw - .1rem);
+}
+
 /* Aggiungi questa regola per mostrare il sub-dropdown quando passi sopra l'elemento principale */
 .sub-dropdown:hover .sub-dropdown-content {
     opacity: 1;
     visibility: visible;
     transform: scaleY(1);
-}
-
-.arrow {
-    display: inline-block;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 7px 6px 0 6px;
-    border-color: #fff transparent transparent transparent;
-    position: absolute;
-    right: 10px; /* Posizione della freccia */
-    top: 43%;
-    transform-origin: center;
-    transition: transform 0.5s ease-in-out;
-}
-
-/* Ruota la freccia quando il dropdown è aperto */
-.dropdown:hover > a > .arrow, .sub-dropdown:hover .arrow {
-    transform: rotate(-90deg);
 }

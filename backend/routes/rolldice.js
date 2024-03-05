@@ -19,55 +19,20 @@ router.get('/soundtracks', (req, res) => {
     res.render('template', {
         pageTitle: "Musiche",
         h1Title: "per un'immersione migliore",
-        pagePath: sectionPath + "",
+        pagePath: sectionPath + "/soundtracks",
         fileName: "soundtrack"
     })
 })
 
-router.get('/soundtrack', (req, res) => {
+router.get('/sessioni', (req, res) => {
     res.render('template', {
-        pageTitle: "Musiche",
-        h1Title: "per un'immersione migliore",
-        pagePath: sectionPath + "",
-        fileName: "soundtrack"
+        pageTitle: "sessioni",
+        h1Title: "nostre giocate",
+        pagePath: sectionPath + "/sessions",
+        fileName: "home"
     })
 })
 
-router.get('/:nomeManuale', (req, res) => {
 
-    const {nomeManuale} = req.params;
-
-    let title = "";
-    let fileName = "manual";
-    let pdfName = "";
-    let manualExists = true;
-
-    if (nomeManuale=="manuale-giocatore") {
-        title = "Manuale del giocatore";
-    } else if (nomeManuale=="manuale-mostri") {
-        title = "Manuale dei mostri";
-    } else if (nomeManuale=="manuale-dungeon-master") {
-        title = "Manuale del Dungeon Master";
-    } else if (nomeManuale=="manuale-tasha") {
-        title = "Calderone Omnicomprensivo di Tasha";
-    } else if (nomeManuale=="manuale-xanathar") {
-        title = "Giuda Omnicomprensiva di Xanathar";
-    } else if (nomeManuale=="manuale-eberron") {
-        title = "Eberron: Rising from the Last War";
-    } else {
-        fileName = "notfound"
-        manualExists = false
-    }
-
-    pdfName = title.replaceAll(" ", "_")
-
-    res.render('template', {
-        pageTitle: manualExists?title:"Manuale non presente",
-        h1Title: manualExists?title:"Questo manuale non esiste o non è presente!",
-        pagePath: sectionPath + "",
-        fileName: "manual",
-        pdfName: pdfName
-    })
-})
 
 module.exports = router

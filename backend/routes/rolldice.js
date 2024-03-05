@@ -15,6 +15,24 @@ router.get('/', (req, res) => {
     })
 })
 
+router.get('/soundtrack', (req, res) => {
+    res.render('template', {
+        pageTitle: "Musiche",
+        h1Title: "per un'immersione migliore",
+        pagePath: sectionPath + "",
+        fileName: "soundtrack"
+    })
+})
+
+router.get('/soundtrack', (req, res) => {
+    res.render('template', {
+        pageTitle: "Musiche",
+        h1Title: "per un'immersione migliore",
+        pagePath: sectionPath + "",
+        fileName: "soundtrack"
+    })
+})
+
 router.get('/:nomeManuale', (req, res) => {
 
     const {nomeManuale} = req.params;
